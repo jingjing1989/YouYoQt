@@ -1,0 +1,31 @@
+﻿#labelFIrst{
+border-image:url(:/images/res/images/carousel/1.jpg);
+/*background-image:url(:/image/files/images/lefttopbar/shrinkButton_max.png);*/
+
+background-repeat: no-repeat;
+background-position: center center;
+}
+
+#labelSecond{
+       border-image:url(:/images/res/images/carousel/2.jpg);
+background-repeat: no-repeat;
+background-position: center center;
+}
+#labelThird{
+        border-image:url(:/images/res/images/carousel/3.jpg);
+background-repeat: no-repeat;
+background-position: center center;
+background-color:rgb(120,250,25);
+}
+#labelForth{
+        border-image:url(:/images/res/images/carousel/4.jpg);
+background-repeat: no-repeat;
+background-position: center center;
+}
+#labelFifth{
+        border-image:url(::/images/res/images/carousel/5.jpg);
+background-repeat: no-repeat;
+background-position: center center;
+
+
+}

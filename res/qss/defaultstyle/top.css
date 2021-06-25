@@ -1,0 +1,233 @@
+﻿#groupBox
+{
+margin:0px;
+}
+
+#topBar {
+	height:40px;
+    background-color: #070C15;
+	border-bottom:1px solid #293343;
+}
+
+#logo
+{
+	min-width:97px;
+    max-width:97px;
+    min-height:25px;
+    max-height:25px;
+    image:url(:/image/files/images/titlebar/main-top.png);
+}
+
+QPushButton {
+	color: rgba(195,195,195,200);
+	width: 70px;
+	height: 20px;
+	border: none;
+	background:  #2e323c;
+}
+
+QPushButton:hover{
+        color: rgba(195,195,195,200);
+	width: 70px;
+	height: 20px;
+        border: none;
+        background: #1078c0;
+}
+
+QPushButton:checked {
+	color: #4fb7ff;
+}
+
+#headBtn {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+#tailBtn {
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+
+#skinBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/image/files/images/titlebar/skin.png);
+}
+
+#skinBtn:hover{
+        background: rgb(150, 150, 150);
+}
+
+#cloudBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/image/files/images/titlebar/cloud.png);
+}
+
+#cloudBtn:hover{
+        background: rgb(150, 150, 150);
+}
+
+#showMainPageBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/images/res/images/titlebar/home.png);
+}
+
+#showMainPageBtn:hover{
+        background: rgb(150, 150, 150);
+}
+
+#chatBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/images/res/images/titlebar/chat.png);
+}
+
+#chatBtn:hover{
+        background: rgb(150, 150, 150);
+}
+
+#cfgBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/images/res/images/titlebar/setting.png) no-repeat;
+}
+
+#cfgBtn:hover{
+        background: rgb(150, 150, 150);
+}
+
+#sizeBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/images/res/images/titlebar/simpily.png);
+}
+
+#sizeBtn:hover{
+        background: rgb(150, 150, 150);
+}
+
+#chartBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/images/res/images/titlebar/chart.png);
+}
+
+#chartBtn:hover{
+        background: rgb(150, 150, 150);
+}
+
+#selectPluginBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/images/res/images/titlebar/plugin.png);
+}
+
+#selectPluginBtn:hover{
+        background: rgb(150, 150, 150);
+}
+
+#minimizeBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/images/res/images/login/min.png);
+}
+
+#minimizeBtn:hover{
+        image:url(:/images/res/images/login/minH.png);
+}
+
+#closeBtn{
+	width:20px;
+	height:20px;
+	border:none;
+	background: transparent;
+        image:url(:/images/res/images/login/closeT.png);
+}
+
+#closeBtn:hover{
+        image:url(:/images/res/images/login/closeH.png);
+}
+
+#maxBtn{
+	background:transparent;
+	border-radius:0px;
+	width:20px;
+	height:20px;
+        border-image:url(:/images/res/images/htfloat/max.png) no-repeat;
+}
+
+#maxBtn:checked{
+        border-image:url(:/images/res/images/htfloat/recover.png) no-repeat;
+}
+
+#maxBtn:hover{
+	background:rgba(37, 48, 92, 100);
+}
+
+
+
+
+QMenu {
+    background-color: #353F52;
+	border:0px;
+}
+
+QMenu::item {
+    background-color: transparent;
+	padding:4px 22px 4px 15px;
+	border-bottom:1px solid #49556B;
+}
+
+QMenu::item:selected {
+    background-color: transparent;
+	border-bottom:1px solid #1789E4;
+}
+
+QMenu::item:pressed {
+    background-color: #1789E4;
+	border-bottom:1px solid #1789E4;
+}
+
+QMenu::item:!enabled {
+	color: rgba(255, 255, 255, 100);
+}
+
+#closeAdBtn
+{
+	border-image:url(dockwidget/dock_close.png);
+	background:transparent;
+	width:16px;
+	height:16px;
+}
+
+#closeAdBtn:hover
+{
+	border-image:url(dockwidget/close_hover.png);
+}
+
+#advertisementLbl
+{
+	color:rgb(255,157,116);
+	/*color:rgb(247,147,30);*/
+}

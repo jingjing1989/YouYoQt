@@ -1,0 +1,43 @@
+﻿QTreeWidget{
+    background-color: #5B677A;
+
+    /* set the font properties*/
+    font-size:13px;
+    color: white;
+
+}
+
+QTreeWidget::item{
+    margin:5px;
+    background: #5B677A;
+    background-clip: margin;
+
+}
+
+
+QTreeWidget::branch{
+    background:#5B677A;
+    }
+
+QTreeView::item {
+    indentation:0;
+}
+QTreeWidget {
+    /*设计item一行中的branch和item为一个整体，默认为0 */
+    show-decoration-selected: 1;
+
+}
+
+QTreeView::item::selected,
+QTreeView::item::selected:hover,
+QTreeView::branch::selected,
+QTreeView::branch::selected:hover
+{
+    background--color: #00A79D;   /*设计item和branch中选中和选中同时悬放的颜色一致*/
+}
+
+QTreeView::item::hover,
+QTreeView::Branch::hover
+{
+    background-color: #D2D2D2;
+}

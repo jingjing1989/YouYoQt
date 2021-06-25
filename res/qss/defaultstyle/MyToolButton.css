@@ -1,0 +1,17 @@
+﻿QLabel
+{
+background-color:transparent;
+color:rgba(55,55,55,60);
+qproperty-alignment: AlignCenter;
+}
+
+QLabel#label_Icon
+{
+font-size: 75px;
+
+}
+QLabel#label_Text
+{
+font-size: 25px;
+
+}

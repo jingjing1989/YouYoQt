@@ -1,0 +1,35 @@
+﻿
+#leftBar{
+	margin-top:0px;	
+	background-color:rgba(53,63,82,1);
+	border:0px;
+}
+#pushButton
+{
+	width:20px;
+	height:20px;
+	background-color:#3B4259;
+	border-image:url(leftbar/CustomLayout.png);
+}
+
+#leftbar_title{
+	max-height:22px;
+	min-height:22px;
+	background-color:#3B4259;
+}
+
+#leftbar_title_btn:checked {
+	background-color:#3B4259;
+}
+
+#leftbar_title_btn{
+	width:16px;
+	height:16px;
+	background-color:#3B4259;
+        border-image:url(:/images/res/images/leftbar/detail_left.png);
+}
+
+#leftbar_title_btn:checked{
+        border-image:url(:/images/res/images/leftbar/detail_left.png);
+}
+

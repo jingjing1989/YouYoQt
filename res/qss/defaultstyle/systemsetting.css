@@ -1,0 +1,449 @@
+﻿*{
+	color:rgb(200,200,200,200);
+}
+*:focus{
+	border:0px;
+}
+*:hover{
+	color:rgb(220,220,220);
+}
+
+#stackedWidget_Menu
+{	
+	border: none;
+	background: #292F42;
+}
+
+#stackedWidget_setting
+{
+        background: #202631;
+}
+
+
+#widget_menu_trading,#widget_menu_system
+{
+	min-width:150px;
+	background-color:rgb(33,33,32);
+}
+
+#label_oldpassword, #label_newpassword,	#label_confirm, #label_remaks_error
+{
+    background:rgb(243,61,61);
+    color:#ffffff;
+    font-size:14px;
+}
+
+#frame_tradesetting,#frame_buysell,#frame_mdlink,#frame_lockclient,#frame_changepassword
+{
+	background: #202631;
+	border-radius: 2px;
+}
+#frame_bottom,#widget_rootMenu
+{
+	background: #292F42;
+}
+
+
+#pushButton_applay,#pushButton_confirm
+{
+	qproperty-styleType:"highlight";
+	width: 80px;
+        height: 24px;
+}
+
+#pushButton_cancel
+{
+	width: 80px;
+        height: 24px;
+}
+
+#pushButton_trading,#pushButton_accounts,#pushButton_password,#pushButton_client
+{
+	width:160px;
+	height:70px;
+	border:none;
+        background:#292F42;
+	font-size: 10px;
+	text-align:center;
+	vertical-align:bottom;
+	border-bottom:1px solid #252831;
+        border-radius: 0px;
+}
+#pushButton_trading
+{
+	color:rgba(255,255,255,80);
+        image: url(:/images/res/images/systemsetting/trade.png);
+}
+#pushButton_accounts
+{
+	color:rgba(255,255,255,80);
+        image: url(:/images/res/images/systemsetting/account.png);
+}
+#pushButton_password
+{
+	color:rgba(255,255,255,80);
+        image: url(:/images/res/images/systemsetting/password.png);
+}
+#pushButton_client
+{
+	color:rgba(255,255,255,80);
+        image: url(:/images/res/images/systemsetting/client.png);
+}
+#pushButton_trading:checked
+{
+	color:rgba(255,255,255,100);
+	border-bottom:1px solid #2091EC; 
+        image: url(:/images/res/images/systemsetting/trade-check.png);
+}
+#pushButton_accounts:checked
+{
+	color:rgba(255,255,255,100);
+	border-bottom:1px solid #2091EC; 
+        image: url(:/images/res/images/systemsetting/account-check.png);
+}
+#pushButton_password:checked
+{
+	color:rgba(255,255,255,100);
+	border-bottom:1px solid #2091EC; 
+        image: url(:/images/res/images/systemsetting/password-check.png);
+}
+#pushButton_client:checked
+{
+	color:rgba(255,255,255,100);
+	border-bottom:1px solid #2091EC; 
+        image: url(:/images/res/images/systemsetting/client-check.png);
+}
+#pushButton_trading:hover
+{
+	background: #4FB8FF;
+        image: url(:/images/res/images/systemsetting/trade-check.png);
+}
+#pushButton_accounts:hover
+{
+	background: #4FB8FF;
+        image: url(:/images/res/images/systemsetting/account-check.png);
+}
+
+#pushButton_password:hover
+{
+	background: #4FB8FF;
+        image: url(:/images/res/images/systemsetting/password-check.png);
+}
+
+#pushButton_client:hover
+{
+	background: #4FB8FF;
+        image: url(:/images/res/images/systemsetting/client-check.png);
+}
+
+
+#label_9,#label_10,#label_11,#label_2,#label_8
+{
+	font-size: 12px;
+	color:rgba(255,255,255,80);
+}
+
+#label_tip
+{
+	font-size: 12px;
+	color:rgb(243,61,61);
+}
+
+
+#pushButton_matradesetting,#pushButton_basetradesetting,#pushButton_checkpassword,#pushButton_margintradesetting,
+#pushButton_accountsetting,#pushButton_changepassword,#pushButton_clientlock,#pushButton_remaks,#pushButton_about,
+#pushButton_etftradesetting,#pushButton_Instruction,#pushButton_logUpload,#pushButton_AlgoTrading,#pushButton_futruesetting
+{
+        border:none;
+        background:#292F42;
+		border-radius: 0px;
+}
+
+#pushButton_matradesetting:checked,#pushButton_basetradesetting:checked,#pushButton_checkpassword:checked,#pushButton_margintradesetting:checked,
+#pushButton_accountsetting:checked,#pushButton_changepassword:checked,#pushButton_clientlock:checked,#pushButton_remaks:checked,#pushButton_about:checked,
+#pushButton_etftradesetting:checked,#pushButton_Instruction:checked,#pushButton_logUpload:checked,#pushButton_AlgoTrading:checked,#pushButton_futruesetting:checked
+{
+	color:#4FB8FF;
+    background:#292F42;
+    	vertical-align:bottom;
+	border-bottom:1px solid #1789E4;
+}
+#pushButton_matradesetting:hover,#pushButton_basetradesetting:hover,#pushButton_checkpassword:hover,#pushButton_margintradesetting:hover,
+#pushButton_accountsetting:hover,#pushButton_changepassword:hover,#pushButton_clientlock:hover,#pushButton_remaks:hover,#pushButton_about:hover,
+#pushButton_etftradesetting:hover,#pushButton_Instruction:hover,#pushButton_logUpload:hover,#pushButton_AlgoTrading:hover,#pushButton_futruesetting:hover
+{
+	border:none;
+	background:#4FB8FF;
+	color:#000000;
+}
+
+SystemSettingButton
+{
+	border:none;
+	background:#292F42;
+	border-radius: 0px;
+}
+
+SystemSettingButton:checked
+{
+	color:#4FB8FF;
+    background:#292F42;
+	vertical-align:bottom;
+	border-bottom:1px solid #1789E4;
+}
+
+SystemSettingButton:hover
+{
+	border:none;
+	background:#4FB8FF;
+	color:#000000;
+}
+
+#ra_algoDelete2Comfirm::indicator:unchecked,
+#ra_algoRunDetailLink::indicator:unchecked,
+#ra_algoParamTip::indicator:unchecked,
+#ra_algoCreateResult::indicator:unchecked,
+#radioButton_10::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+#radioButton_2::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+#radioButton_3::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+#radioButton_4::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+#radioButton_6::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+#radioButton_7::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+#radioButton_8::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+#radioButton::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+#radioButton_clientlock::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+
+#ra_algoDelete2Comfirm::indicator:checked,
+#ra_algoRunDetailLink::indicator:checked,
+#ra_algoParamTip::indicator:checked,
+#ra_algoCreateResult::indicator:checked,
+#radioButton_10::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+#radioButton_2::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+#radioButton_3::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+#radioButton_4::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+#radioButton_6::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+#radioButton_7::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+#radioButton_8::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+#radioButton::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+#radioButton_clientlock::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+
+#rabtn_balanceQty::indicator:checked
+{
+   image: url(:/image/files/images/systemsetting/hook.png);
+}
+#rabtn_balanceQty::indicator:unchecked
+{
+    image: url(:/image/files/images/systemsetting/uncheck.png);
+}
+
+#ra_algoDelete2Comfirm:disabled,
+#ra_algoRunDetailLink:disabled,
+#ra_algoParamTip:disabled,
+#ra_algoCreateResult:disabled,
+#radioButton_10:disabled
+{
+	color:rgba(255,255,255,80);
+}
+#comboBox:disabled
+{
+	color:rgba(255,255,255,80);
+}
+
+#label_producticon{
+	min-width:128px;
+    max-width:128px;
+    min-height:128px;
+    max-height:128px;
+    background-image:url(:/image/files/images/systemsetting/logo.png) no-repeat;
+}
+
+#label_version
+{
+	color:#4FB8FF;
+	font-size:14px;
+}
+#textEdit_updatedetail
+{
+	background:transparent;
+	border:0px;
+}
+#page_etftrading #scrollArea
+{
+	border:none;
+	background-color:#202631;
+}
+
+#page_etftrading QCheckBox 
+{
+	opacity: 0.5;
+	font-family: MicrosoftYaHei;
+	font-size: 12px;
+	color: #9FB7D4;
+}
+
+#page_etftrading QCheckBox::indicator::unchecked {
+     
+    image: url(:/image/files/images/systemsetting/sel copy 3.png);
+}
+
+#page_etftrading QCheckBox::indicator::checked { 
+    image: url(:/image/files/images/systemsetting/sel copy 2.png);
+}
+
+#page_etftrading QRadioButton
+{
+	font-family: MicrosoftYaHei;
+	font-size: 12px;
+	color: #9FB7D4;
+	letter-spacing: 0;
+}
+
+/*单选框未选中样式*/
+#page_etftrading QRadioButton::indicator::unchecked {
+     
+    image: url(:/image/files/images/systemsetting/sel copy.png);
+}
+/*单选框选中样式*/
+#page_etftrading QRadioButton::indicator::checked { 
+    image: url(:/image/files/images/systemsetting/sel.png);
+}
+
+#page_etftrading QLabel
+{
+	color:#FFFFFF;
+}
+
+#page_etftrading #widget,#page_etftrading #widget_2,#page_etftrading #widget_5
+{
+	border-bottom: 0.5px solid #3E4759;
+}
+
+#page_etftrading #widget_2 QLabel
+{
+	color:#9FB7D4;
+}
+#page_etftrading #widget_2 #label_17
+{
+	color:#FFFFFF;
+}
+
+#page_etftrading QLineEdit
+{
+	background-color:#353F52;
+	color:#9FB7D4;
+	border:none;
+}
+
+#lineEdit_unit1:!editable
+{
+    background-color:#303741;
+        color:rgba(255,255,255,150);
+}
+
+#textBrowser,#textBrowser_tip
+{
+    background:#202535;
+        color:rgb(168,169,171);
+}
+
+SelectLineedit QTreeWidget
+{
+    background-color: #292F42;
+}
+
+SelectLineedit QTreeWidget::item
+{
+    border-bottom:1px solid #293343;
+}
+
+SelectLineedit QTreeWidget::item:hover
+{
+    background-color:#3772E9;
+}
+
+SelectLineedit QTreeWidget::item:selected
+{
+    outline: 0px;
+    background-color:#3772E9;
+    border:none;
+}
+
+SelectLineedit QTreeWidget:focus{
+outline:none;
+}
+
+#lineEdit,#lineEdit_2,#lineEdit_4{
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #FF2C3D;
+        height:16px;
+}
+#lineEdit_5{
+        font-family: MicrosoftYaHei;
+        font-size: 16px;
+        color: #FF2C3D;
+        height:20px;
+}
+
+#textBrowser_rule{
+        font-family: MicrosoftYaHei;
+        font-size: 12px;
+        color: #9CB4D1;
+    border: 0px solid;
+    background:transparent;
+}
+

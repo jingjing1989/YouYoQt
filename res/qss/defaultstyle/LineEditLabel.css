@@ -1,0 +1,18 @@
+﻿
+QPushButton#pb_password {
+border: 1px solid rgba(156,180,209,0.30);
+border-left:none;
+border-radius:0px;
+padding-right:5px;
+text-align:center;
+background:transparent;
+width:16px;
+height:16px;
+    image: url(:/images/res/images/login/invisible.png);
+
+}
+
+QPushButton#pb_password::checked {
+    /*border-image: url(:/image/files/visible.png) 0 0 0 0 stretch stretch;*/
+    image: url(:/images/res/images/login/visible.png);
+}
