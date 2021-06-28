@@ -379,15 +379,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>MyTitleBar</class>
-   <extends>QWidget</extends>
-   <header>MyTitleBar.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>MyLeftBar</class>
    <extends>QTreeWidget</extends>
-   <header>MyLeftBar.h</header>
+   <header>home/MyLeftBar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MyTitleBar</class>
+   <extends>QWidget</extends>
+   <header>home/MyTitleBar.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

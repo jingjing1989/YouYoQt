@@ -10,8 +10,6 @@
 #include <QMessageBox>
 #include <QFile>
 
-#include "LineEditLabel.h"
-
 #define ICON_USER  QChar(0xf21b)
 #define ICON_PASSWORD  QChar(0xf023)
 #define ICON_KEY  QChar(0xf084)

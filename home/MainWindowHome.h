@@ -6,7 +6,7 @@
 #include <QByteArray>
 #include <QEvent>
 
-#include "MyLeftBar.h"
+#include "home/MyLeftBar.h"
 
 namespace Ui {
   class MainWindowHome;

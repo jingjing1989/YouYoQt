@@ -40,6 +40,9 @@
     <property name="text">
      <string/>
     </property>
+    <property name="buddy">
+     <cstring>lineEdit_user</cstring>
+    </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_user">
     <property name="geometry">
@@ -72,6 +75,9 @@
     <property name="text">
      <string/>
     </property>
+    <property name="buddy">
+     <cstring>lineEdit_Password</cstring>
+    </property>
    </widget>
    <widget class="QPushButton" name="pushbutton_Log">
     <property name="geometry">
@@ -100,6 +106,9 @@
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="buddy">
+     <cstring>lineEdit_Key</cstring>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_Key">
@@ -246,17 +255,25 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>LineEditLabel</class>
-   <extends>QLineEdit</extends>
-   <header>LineEditLabel.h</header>
-  </customwidget>
-  <customwidget>
    <class>Carousel</class>
    <extends>QWidget</extends>
    <header>home\Carousel.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>LineEditLabel</class>
+   <extends>QLineEdit</extends>
+   <header>login/LineEditLabel.h</header>
+  </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>pushButton_Close</tabstop>
+  <tabstop>pushButton_Mini</tabstop>
+  <tabstop>lineEdit_user</tabstop>
+  <tabstop>lineEdit_Password</tabstop>
+  <tabstop>lineEdit_Key</tabstop>
+  <tabstop>pushbutton_Log</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
  <slots>

@@ -3,8 +3,7 @@
 
 #include <QDialog>
 
-
-#include "LineEditLabel.h"
+#include "login\LineEditLabel.h"
 
 namespace Ui {
 class loginDialog;
