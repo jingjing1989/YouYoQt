@@ -96,6 +96,8 @@ MyTitleBar::MyTitleBar(QWidget *parent) : QWidget(parent)
   pLayout->addWidget(minimizeBtn);
   pLayout->addWidget(maxBtn);
   pLayout->addWidget(closeBtn);
+
+  pLayout->setMargin(0);
   this->setLayout(pLayout);
 
   connect(minimizeBtn, SIGNAL(clicked(bool)), this, SLOT(onClicked()));

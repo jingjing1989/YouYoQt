@@ -10,6 +10,8 @@
 #include "setting/SettingDialog.h"
 #include "setting/SystemSettingMainWindow.h"
 
+#include "Test.h"
+
 int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
   // Widget w;
@@ -35,12 +37,15 @@ int main(int argc, char *argv[]) {
        set.show();
        MyTableWidget home;
        home.show();
- #endif
+#endif
 
-       MainWindowHome home;
-       home.show();
+    MainWindowHome home;
+    home.show();
 
-       return app.exec();
+    //    Test t;
+    //    t.show();
+
+    return app.exec();
   } else
     return 0;
 }

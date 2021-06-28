@@ -231,3 +231,25 @@ QMenu::item:!enabled {
 	color:rgb(255,157,116);
 	/*color:rgb(247,147,30);*/
 }
+#widget_2 {
+
+        background:  rgb(195,195,20);;
+}
+
+#widget_3 {
+
+        background:  rgb(195,195,120);;
+}
+#widget_4 {
+
+        background:  rgb(50,195,20);;
+}
+
+#widget_5 {
+
+        background:  rgb(30,250,120);;
+}
+#widget_6 {
+
+        background:  rgb(130,50,120);;
+}
