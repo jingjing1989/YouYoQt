@@ -23,7 +23,7 @@ background-repeat: no-repeat;
 background-position: center center;
 }
 #labelFifth{
-        border-image:url(::/images/res/images/carousel/5.jpg);
+        border-image:url(:/images/res/images/carousel/5.jpg);
 background-repeat: no-repeat;
 background-position: center center;
 

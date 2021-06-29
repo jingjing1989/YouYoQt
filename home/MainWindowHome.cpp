@@ -160,25 +160,24 @@ void MainWindowHome::initControl()
 //    pWidget->setFixedSize(this->width(), 48);
 //    pWidget->move(0, ui.titleWidget->height());
     //点击效果按钮，进行效果展示
-    connect(ui->shrinkButton, &QPushButton::clicked, [=](){
-    //自定义属性shrinkTree
-        QPropertyAnimation *animation = new QPropertyAnimation(ui->treeWidgetLeft, "shrinkTree");
-        animation->setDuration(300);
-        animation->setEasingCurve(QEasingCurve::InQuad);
-        //高于最小高度，代表处于展开状态
-        if (ui->treeWidgetLeft->width() > 30)
-        {
-            animation->setEndValue(30);
-            ui->treeWidgetLeft->setExpandsOnDoubleClick(false);
-            ui->treeWidgetLeft->setExpand(false);
-        }
-        //否就是收缩状态
-        else
-        {
-            animation->setEndValue(ui->treeWidgetLeft->width() + 180);
-            ui->treeWidgetLeft->setExpandsOnDoubleClick(true);
-            ui->treeWidgetLeft->setExpand(true);
-        }
-        animation->start(QAbstractAnimation::DeleteWhenStopped);
-    });
+connect(ui->shrinkButton, &QPushButton::clicked, [=]() {
+  //自定义属性shrinkTree
+  QPropertyAnimation *animation =
+      new QPropertyAnimation(ui->treeWidgetLeft, "shrinkTree");
+  animation->setDuration(300);
+  animation->setEasingCurve(QEasingCurve::InQuad);
+  //高于最小高度，代表处于展开状态
+  if (ui->treeWidgetLeft->width() > 30) {
+    animation->setEndValue(30);
+    ui->treeWidgetLeft->setExpandsOnDoubleClick(false);
+    ui->treeWidgetLeft->setExpand(false);
+  }
+  //否就是收缩状态
+  else {
+    animation->setEndValue(ui->treeWidgetLeft->width() + 180);
+    ui->treeWidgetLeft->setExpandsOnDoubleClick(true);
+    ui->treeWidgetLeft->setExpand(true);
+  }
+  animation->start(QAbstractAnimation::DeleteWhenStopped);
+});
 }
