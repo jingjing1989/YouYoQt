@@ -15,7 +15,6 @@ CHarts::CHarts(QWidget *parent) : QWidget(parent), ui(new Ui::CHarts) {
   ui->tableView->setModel(stanModel); //设置数据模型
 
   iniBarChart();
-  buildBarChart();
 }
 
 CHarts::~CHarts() { delete ui; }
@@ -45,12 +44,16 @@ void CHarts::iniData() {
     for (int j = ColNoMath; j <= ColNoEnglish; j++) {
       qreal score = 50 + (qrand() % 50); //随机数
       aveScore += score;
-      sItem = new QStandardItem(QString::asprintf("%0.f", score));
+      // sItem = new QStandardItem(QString::asprintf("%0.f", score));
+      QString strScore = QString::number(score, 10, 1);
+      sItem = new QStandardItem(strScore);
       sItem->setTextAlignment(Qt::AlignHCenter);
       stanModel->setItem(i, j, sItem);
     }
     aveScore = aveScore / 3;
-    sItem = new QStandardItem(QString::asprintf("%.1f", aveScore));
+    // sItem = new QStandardItem(QString("%1").arg(aveScore));
+    QString strAverage = QString::number(aveScore, 10, 2);
+    sItem = new QStandardItem(strAverage);
     sItem->setTextAlignment(Qt::AlignHCenter);
     //设置平均分不许编辑
     //需要执行反操作
@@ -87,6 +90,8 @@ void CHarts::iniBarChart() {
   chart->setAnimationOptions(QChart::SeriesAnimations);
   ui->graphicsView_Bar->setChart(chart); //为ChartView设置chart
   ui->graphicsView_Bar->setRenderHint(QPainter::Antialiasing);
+
+  buildBarChart();
 }
 
 //构造柱状图
@@ -111,11 +116,11 @@ void CHarts::buildBarChart() {
   //    lineseries->setPointLabelsVisible(true);
   //    lineseries->setPointLabelsFormat("@yPoint");
 
-  for (int i = 0; i < stanModel->rowCount(); i++) {                               //从数据模型获取数据
-    setMath->append(stanModel->item(i, ColNoMath)->text().toInt());               //数学
-    setChinese->append(stanModel->item(i, ColNoChinese)->text().toInt());         //语文
-    setEnglish->append(stanModel->item(i, ColNoEnglish)->text().toInt());         //英语
-    Line->append(QPointF(i, stanModel->item(i, ColNoAverage)->text().toFloat())); //平均分
+  for (int i = 0; i < stanModel->rowCount(); i++) {                                //从数据模型获取数据
+    setMath->append(stanModel->item(i, ColNoMath)->text().toDouble());             //数学
+    setChinese->append(stanModel->item(i, ColNoChinese)->text().toDouble());       //语文
+    setEnglish->append(stanModel->item(i, ColNoEnglish)->text().toDouble());       //英语
+    Line->append(QPointF(i, stanModel->item(i, ColNoAverage)->text().toDouble())); //平均分
   }
 
   //创建一个柱状图序列 QBarSeries, 并添加三个数据集
