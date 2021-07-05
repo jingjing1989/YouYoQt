@@ -2,6 +2,7 @@
 #ifndef CHARTS_H
 #define CHARTS_H
 
+#include <QAbstractAxis>
 #include <QStandardItem>
 #include <QString>
 #include <QStringList>

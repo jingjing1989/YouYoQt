@@ -36,16 +36,13 @@ int main(int argc, char *argv[]) {
        MyTableWidget home;
        home.show();
 
+#endif
 
     MainWindowHome home;
     home.show();
-#endif
 
-    CHarts s;
-    s.show();
-
-    //    Test t;
-    //    t.show();
+    CHarts chart;
+    chart.show();
 
     return app.exec();
   } else

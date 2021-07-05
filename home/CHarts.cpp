@@ -99,8 +99,16 @@ void CHarts::buildBarChart() {
   QChart *chart = ui->graphicsView_Bar->chart(); //获取ChartView关联的chart
   chart->removeAllSeries();                      //删除所有序列
 
-  chart->removeAxis(chart->axisX()); //删除坐标轴
-  chart->removeAxis(chart->axisY()); //删除坐标轴
+  QList<QAbstractAxis *> axisListV = chart->axes(Qt::Vertical);
+  for (int i = 0; i < axisListV.size(); ++i)
+    chart->removeAxis(axisListV.at(i));
+
+  QList<QAbstractAxis *> axisListH = chart->axes(Qt::Horizontal);
+  for (int i = 0; i < axisListH.size(); ++i)
+    chart->removeAxis(axisListH.at(i));
+
+  //  chart->removeAxis(chart->axisX()); //删除坐标轴 已废弃
+  //  chart->removeAxis(chart->axisY()); //删除坐标轴  已废弃
 
   //创建三个QBarSet数据集,从数据模型的表头获取Name
   QBarSet *setMath = new QBarSet(stanModel->horizontalHeaderItem(ColNoMath)->text());
@@ -151,8 +159,8 @@ void CHarts::buildBarChart() {
   axisX->append(categories); //添加横坐标文字列表
   //    chart->createDefaultAxes();
 
-  chart->setAxisX(axisX, series);                                           //设置横坐标
-  chart->setAxisX(axisX, Line);                                             //设置横坐标
+  // chart->setAxisX(axisX, series);   //已废弃                                        //设置横坐标
+  // chart->setAxisX(axisX, Line);     //已废弃                                      //设置横坐标
   axisX->setRange(categories.at(0), categories.at(categories.count() - 1)); //这只坐标轴范围
 
   //数值型坐标作为纵轴
@@ -163,8 +171,18 @@ void CHarts::buildBarChart() {
   axisY->setLabelFormat("%.0f"); //标签格式
   //    axisY->setGridLineVisible(false);
   //    axisY->setMinorTickCount(4);
-  chart->setAxisY(axisY, series); //为
-  chart->setAxisY(axisY, Line);
+
+  //  chart->setAxisY(axisY, series); //为
+  //  chart->setAxisY(axisY, Line);
+
+  chart->addAxis(axisX, Qt::AlignBottom); //坐标轴添加到图表，并指定方向
+  chart->addAxis(axisY, Qt::AlignLeft);
+
+  series->attachAxis(axisX); //序列 series 附加坐标轴
+  series->attachAxis(axisY);
+
+  Line->attachAxis(axisX); //序列 Line 附加坐标轴
+  Line->attachAxis(axisY);
 
   //    lineseries->setPointLabelsVisible(true);
   //    lineseries->setPointLabelsFormat("@yPoint");
