@@ -6,11 +6,10 @@
 #include "login\MyToolButton.h"
 
 namespace Ui {
-  class MainWindowSetting;
+class MainWindowSetting;
 }
 
-class MainWindowSetting : public QMainWindow
-{
+class MainWindowSetting : public QMainWindow {
   Q_OBJECT
 
 public:
@@ -20,7 +19,7 @@ public:
   QFont SetIconFont();
 
   //获得对应ToolButton控件
-  MyToolButton* GetMyToolButton(int index);
+  MyToolButton *GetMyToolButton(int index);
 
 private:
   Ui::MainWindowSetting *ui;

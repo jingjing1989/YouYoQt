@@ -1,22 +1,18 @@
 ﻿#include "SettingDialog.h"
 #include "ui_SettingDialog.h"
 
-#include <QHBoxLayout>
 #include <QGridLayout>
 #include <QGroupBox>
+#include <QHBoxLayout>
 
-enum toolButtonIndex
-{
+enum toolButtonIndex {
   Transaction,
   Account,
   Password,
   Client,
 };
 
-SettingDialog::SettingDialog(QWidget *parent) :
-  QDialog(parent),
-  ui(new Ui::SettingDialog)
-{
+SettingDialog::SettingDialog(QWidget *parent) : QDialog(parent), ui(new Ui::SettingDialog) {
   ui->setupUi(this);
 #if 0
   //横向布局填充控件
@@ -30,37 +26,28 @@ SettingDialog::SettingDialog(QWidget *parent) :
 
   //网格布局
   QGridLayout *gLayout = new QGridLayout;
-  for (int i=0;i<4;++i) {
-      gLayout->addWidget(GetToolButton(i),0,i);
-      GetToolButton(i)->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-       GetToolButton(i)->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-       GetToolButton(i)->setIconSize(QSize(100,100));
-    }
+  for (int i = 0; i < 4; ++i) {
+    gLayout->addWidget(GetToolButton(i), 0, i);
+    GetToolButton(i)->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    GetToolButton(i)->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    GetToolButton(i)->setIconSize(QSize(100, 100));
+  }
 
   ui->groupBox->setLayout(gLayout);
-
-
-
 }
 
-SettingDialog::~SettingDialog()
-{
-  delete ui;
-}
+SettingDialog::~SettingDialog() { delete ui; }
 
-QToolButton* SettingDialog::GetToolButton(int index)
-{
+QToolButton *SettingDialog::GetToolButton(int index) {
   switch (index) {
-    case Transaction:
-      return ui->toolButton_Transaction;
-    case Account:
-      return ui->toolButton_Accout;
-    case Password:
-      return ui->toolButton_Password;
-    case Client:
-      return ui->toolButton_Client;
-
-    }
+  case Transaction:
+    return ui->toolButton_Transaction;
+  case Account:
+    return ui->toolButton_Accout;
+  case Password:
+    return ui->toolButton_Password;
+  case Client:
+    return ui->toolButton_Client;
+  }
   return 0;
-
 }

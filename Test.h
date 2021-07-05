@@ -1,4 +1,4 @@
-#ifndef TEST_H
+﻿#ifndef TEST_H
 #define TEST_H
 
 #include <QWidget>
@@ -7,15 +7,14 @@ namespace Ui {
 class Test;
 }
 
-class Test : public QWidget
-{
+class Test : public QWidget {
   Q_OBJECT
 
- public:
+public:
   explicit Test(QWidget *parent = nullptr);
   ~Test();
 
- private:
+private:
   Ui::Test *ui;
 };
 

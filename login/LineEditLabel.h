@@ -1,10 +1,10 @@
 ﻿#ifndef LINEEDITLABEL_H
 #define LINEEDITLABEL_H
 
-#include <QObject>
-#include <QWidget>
 #include <QLineEdit>
+#include <QObject>
 #include <QPushButton>
+#include <QWidget>
 class LineEditLabel : public QLineEdit
 
 {

@@ -2,15 +2,14 @@
 #ifndef MYLEFTBAR_H
 #define MYLEFTBAR_H
 
-#include <QWidget>
 #include <QTreeWidgetItem>
+#include <QWidget>
 
 namespace Ui {
-  class MyLeftBar;
+class MyLeftBar;
 }
 
-class MyLeftBar : public QWidget
-{
+class MyLeftBar : public QWidget {
   Q_OBJECT
   Q_PROPERTY(int shrinkTree READ shrinkTree WRITE setshrinkTree)
 
@@ -18,7 +17,7 @@ public:
   explicit MyLeftBar(QWidget *parent = nullptr);
   ~MyLeftBar();
 
-  void setHeaderItem(QTreeWidgetItem* pItem);
+  void setHeaderItem(QTreeWidgetItem *pItem);
 
   void setExpandsOnDoubleClick(bool isExpand);
 
@@ -31,8 +30,7 @@ private:
 
   bool eventFilter(QObject *watched, QEvent *event);
 
-  //void initControl();
-
+  // void initControl();
 
   void setshrinkTree(int height);
 

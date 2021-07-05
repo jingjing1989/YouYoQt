@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Test.cpp \
+    home/CHarts.cpp \
     home/Carousel.cpp \
     utility/CommonUtility.cpp \
     login/LineEditLabel.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
 
 HEADERS += \
     Test.h \
+    home/CHarts.h \
     home/Carousel.h \
     utility/CommonUtility.h \
     login/LineEditLabel.h \
@@ -58,6 +60,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 FORMS += \
     Test.ui \
+    home/CHarts.ui \
     home/Carousel.ui \
     login/LineEditPassword.ui \
     home/MainWindowHome.ui \

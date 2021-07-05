@@ -1,6 +1,3 @@
 ﻿#include "ToolButtonIconText.h"
 
-ToolButtonIconText::ToolButtonIconText(QWidget *parent) : QToolButton(parent)
-{
-
-}
+ToolButtonIconText::ToolButtonIconText(QWidget *parent) : QToolButton(parent) {}

@@ -4,11 +4,10 @@
 #include <QWidget>
 
 namespace Ui {
-  class MyTableWidget;
+class MyTableWidget;
 }
 
-class MyTableWidget : public QWidget
-{
+class MyTableWidget : public QWidget {
   Q_OBJECT
 
 public:
