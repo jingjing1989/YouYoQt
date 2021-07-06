@@ -16,6 +16,7 @@ public:
   static void globalInit(QApplication *pwidget);
   static void addIconFont();
   static void addDefaultFont();
+  static void setGlobalColors();
 };
 
 #endif // COMMONUTILITY_H

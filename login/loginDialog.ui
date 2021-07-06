@@ -36,7 +36,7 @@
     <widget class="Carousel" name="widget" native="true"/>
    </item>
    <item>
-    <widget class="QWidget" name="widget_log" native="true">
+    <widget class="QFrame" name="frame_log">
      <property name="minimumSize">
       <size>
        <width>400</width>
@@ -81,7 +81,7 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
          <property name="leftMargin">
-          <number>310</number>
+          <number>330</number>
          </property>
          <property name="topMargin">
           <number>0</number>
@@ -153,7 +153,6 @@
            </property>
            <property name="font">
             <font>
-             <family>Albertus Extra Bold</family>
              <pointsize>20</pointsize>
             </font>
            </property>

@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/qss">
-        <file>res/qss/defaultstyle/application.css</file>
+        <file>res/qss/defaultstyle/login.css</file>
         <file>res/qss/defaultstyle/carousel.css</file>
         <file>res/qss/defaultstyle/left.css</file>
         <file>res/qss/defaultstyle/leftbar.css</file>
@@ -8,6 +8,7 @@
         <file>res/qss/defaultstyle/top.css</file>
         <file>res/qss/defaultstyle/systemsetting.css</file>
         <file>res/qss/defaultstyle/LineEditLabel.css</file>
+        <file>res/qss/defaultstyle/darkTheme.css</file>
     </qresource>
     <qresource prefix="/iconfont">
         <file>res/iconFont/fontawesome-webfont.ttf</file>

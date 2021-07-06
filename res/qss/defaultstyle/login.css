@@ -4,20 +4,8 @@
     color:rgb(255,215,0);
     font-size: 8pt;
     border: 1px solid rgb(255,215,0);
-    border-top-left-radius:3px;
-    border-top-right-radius:3px;
-    border-bottom-left-radius:3px;
-    border-bottom-right-radius:3px;
+    border-radius:3px;
     qproperty-alignment: AlignCenter;
-}
-#widget_log{
-    background-color:black;
-}
-QPushButton#pushbutton_Log
-{
-    color:white;
-    background-color:rgba(23,137,228,196);
-    border-radius:6px;
 }
 #label_user,#label_password,#label_key{
     border: 2px solid rgb(159,183,212);
@@ -26,9 +14,8 @@ QPushButton#pushbutton_Log
     border-top-right-radius:0px;
     border-bottom-right-radius:0px;
     border-bottom-left-radius:6px;
-    color:rgb(255,215,0);
 }
-QPushButton
+#pushButton_Mini,#pushButton_Close
 {
     background: transparent;
     color:rgb(159,183,212);
