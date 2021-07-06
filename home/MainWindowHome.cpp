@@ -21,6 +21,8 @@ MainWindowHome::MainWindowHome(QWidget *parent) : QMainWindow(parent), ui(new Ui
   //只有对qApp才可以直接用"file:///:/qss/files/application.css"设置
   QString styleSheet(":/qss/res/qss/defaultstyle/top.css");
   CommonUtility::setStyleSheet(styleSheet, this);
+  QString styleSheetApp(":/qss/res/qss/defaultstyle/application.css");
+  CommonUtility::setStyleSheet(styleSheetApp, this);
 
   QString styleSheetlefttop(":/qss/res/qss/defaultstyle/lefttop.css");
   CommonUtility::setStyleSheet(styleSheetlefttop, ui->shrinkButton);

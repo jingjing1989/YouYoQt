@@ -18,9 +18,7 @@ CHarts::CHarts(QWidget *parent) : QWidget(parent), ui(new Ui::CHarts) {
 
   initStackedBarChart();
 
-  initPercentBarCHart();
-
-  initScatterChart();
+  initPercentBarCHart()
 
   // test 设置splitter 内控件比例 可是还是不行啊
   //  ui->splitter->setStretchFactor(0, 1 / 3);
@@ -414,10 +412,8 @@ void CHarts::initPercentBarCHart() {
   chart->setAnimationOptions(QChart::SeriesAnimations);
   ui->graphicsView_Percent->setChart(chart);
   ui->graphicsView_Percent->setRenderHint(QPainter::Antialiasing);
-
   buildPercentBarChart();
 }
-
 //构建百分比柱状图
 void CHarts::buildPercentBarChart() {
   //获取chart对象
@@ -445,12 +441,12 @@ void CHarts::buildPercentBarChart() {
 
   QStringList categories;
   //从分数段统计数据表里获取数据，添加到数据集
-  for (int i = 0; i <= 4; i++) {
+  for (int i = 1; i <= 4; i++) {
     item = ui->treeWidget_Data->topLevelItem(i);
-    categories << item->text(ColNoName);
+    categories << item->text(0);
     barSetMath->append(item->text(ColNoMath).toDouble());
-    barSetCHinese->append(item->text(ColNoChinese).toDouble());
-    barSetEnglish->append(item->text(ColNoEnglish).toDouble());
+    barSetMath->append(item->text(ColNoChinese).toDouble());
+    barSetMath->append(item->text(ColNoEnglish).toDouble());
   }
 
   QPercentBarSeries *series = new QPercentBarSeries();
@@ -486,82 +482,4 @@ void CHarts::buildPercentBarChart() {
 
   chart->legend()->setVisible(true);
   chart->legend()->setAlignment(Qt::AlignRight);
-}
-
-void CHarts::initScatterChart() {
-  QChart *chart = new QChart();
-  chart->setTitle("QScatter QSplineSeries演示");
-  chart->setAnimationOptions(QChart::SeriesAnimations);
-  ui->graphicsView_Scatter->setChart(chart);
-  ui->graphicsView_Scatter->setRenderHint(QPainter::Antialiasing);
-  buildScatterChart();
-}
-
-void CHarts::buildScatterChart() {
-  QChart *chart = ui->graphicsView_Scatter->chart();
-  //删除序列
-  chart->removeAllSeries();
-
-  //删除所有坐标轴
-  QList<QAbstractAxis *> axisListV = chart->axes(Qt::Vertical);
-  for (int i = 0; i < axisListV.size(); ++i)
-    chart->removeAxis(axisListV.at(i));
-
-  QList<QAbstractAxis *> axisListH = chart->axes(Qt::Horizontal);
-  for (int i = 0; i < axisListH.size(); ++i)
-    chart->removeAxis(axisListH.at(i));
-
-  //曲线序列
-  QSplineSeries *splineSeries = new QSplineSeries();
-  splineSeries->setName("曲线:" + stanModel->horizontalHeaderItem(ColNoAverage)->text());
-  QPen pen;
-  pen.setColor(Qt::green);
-  pen.setWidth(3);
-  splineSeries->setPen(pen);
-
-  //散点序列
-  QScatterSeries *scatterSeries = new QScatterSeries();
-  scatterSeries->setName("散点:" + stanModel->horizontalHeaderItem(ColNoAverage)->text());
-  scatterSeries->setMarkerSize(10);
-  scatterSeries->setMarkerShape(QScatterSeries::MarkerShapeRectangle);
-  scatterSeries->setBorderColor(Qt::black);
-  scatterSeries->setBrush(QBrush(Qt::blue));
-
-  chart->addSeries(scatterSeries);
-  chart->addSeries(splineSeries);
-
-  //横坐标文字
-  QStringList categoriesLst;
-  for (int i = 0; i < 5; i++) {
-    categoriesLst << ui->treeWidget_Data->topLevelItem(i)->text(0);
-
-    splineSeries->append(QPointF(i, ui->treeWidget_Data->topLevelItem(i)->text(ColNoAverage).toDouble()));
-    scatterSeries->append(QPointF(i, ui->treeWidget_Data->topLevelItem(i)->text(ColNoAverage).toDouble()));
-  }
-  //用于柱状图的坐标轴
-  QBarCategoryAxis *axisX = new QBarCategoryAxis();
-  axisX->append(categoriesLst); //添加横坐标文字列表                                   //设置横坐标
-  axisX->setRange(categoriesLst.at(0), categoriesLst.at(categoriesLst.count() - 1)); //这只坐标轴范围
-
-  //数值型坐标作为纵轴
-  QValueAxis *axisY = new QValueAxis;
-  axisY->setRange(0, iniDataRowCount);
-  axisY->setTitleText("人数");
-  axisY->setTickCount(6);        // 11
-  axisY->setLabelFormat("%.0f"); //标签格式
-
-  chart->addAxis(axisX, Qt::AlignBottom); //坐标轴添加到图表，并指定方向
-  chart->addAxis(axisY, Qt::AlignLeft);
-
-  scatterSeries->attachAxis(axisX); //序列 series 附加坐标轴
-  scatterSeries->attachAxis(axisY);
-
-  splineSeries->attachAxis(axisX); //序列 Line 附加坐标轴
-  splineSeries->attachAxis(axisY);
-
-  //    lineseries->setPointLabelsVisible(true);
-  //    lineseries->setPointLabelsFormat("@yPoint");
-
-  chart->legend()->setVisible(true);             //显示图例
-  chart->legend()->setAlignment(Qt::AlignRight); //图例显示在下方
 }

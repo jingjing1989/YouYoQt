@@ -513,7 +513,7 @@ void CHarts::buildScatterChart() {
 
   //曲线序列
   QSplineSeries *splineSeries = new QSplineSeries();
-  splineSeries->setName("曲线:" + stanModel->horizontalHeaderItem(ColNoAverage)->text());
+  splineSeries->setName("Spline");
   QPen pen;
   pen.setColor(Qt::green);
   pen.setWidth(3);
@@ -522,7 +522,7 @@ void CHarts::buildScatterChart() {
   //散点序列
   QScatterSeries *scatterSeries = new QScatterSeries();
   scatterSeries->setName("散点:" + stanModel->horizontalHeaderItem(ColNoAverage)->text());
-  scatterSeries->setMarkerSize(10);
+  scatterSeries->setMarkerSize(13);
   scatterSeries->setMarkerShape(QScatterSeries::MarkerShapeRectangle);
   scatterSeries->setBorderColor(Qt::black);
   scatterSeries->setBrush(QBrush(Qt::blue));

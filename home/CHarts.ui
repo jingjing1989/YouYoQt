@@ -52,13 +52,148 @@
         <number>0</number>
        </property>
        <item row="0" column="0">
-        <widget class="QTableView" name="tableView">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="currentIndex">
+          <number>1</number>
          </property>
+         <widget class="QWidget" name="tab">
+          <attribute name="title">
+           <string>原始数据</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_8">
+           <item row="0" column="0">
+            <widget class="QTableView" name="tableView">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_2">
+          <attribute name="title">
+           <string>统计数据</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="0" column="0">
+            <widget class="QTreeWidget" name="treeWidget_Data">
+             <attribute name="headerMinimumSectionSize">
+              <number>20</number>
+             </attribute>
+             <attribute name="headerDefaultSectionSize">
+              <number>90</number>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>分数段</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>数学</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>语文</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>英语</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>平均分</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </column>
+             <item>
+              <property name="text">
+               <string>60分以下</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>60-69分</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>70-79分</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>80-89分</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>90分以上</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>平均分</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>最高分</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>最低分</string>
+              </property>
+              <property name="textAlignment">
+               <set>AlignCenter</set>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -115,8 +250,147 @@
        <property name="spacing">
         <number>0</number>
        </property>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Hole Size:</string>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>分析</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="comboBox_Catagory">
+         <property name="currentText">
+          <string>数学</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>数学</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>语文</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>英语</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>平均分</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDoubleSpinBox" name="doubleSpinBox_Hole">
+         <property name="value">
+          <double>0.100000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Pie Size:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QDoubleSpinBox" name="doubleSpinBox_Pie">
+         <property name="value">
+          <double>0.600000000000000</double>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="5">
         <widget class="QChartView" name="graphicsView_Pie"/>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>主题:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QComboBox" name="comboBox_Style">
+         <item>
+          <property name="text">
+           <string>Light</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>BlueCerulean</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Dark</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>BrownSand</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>BlueNcs</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>HighConstrast</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>BlueIcy</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Qt</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>10</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="2">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>10</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>

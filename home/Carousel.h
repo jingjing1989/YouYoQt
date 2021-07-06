@@ -5,6 +5,7 @@
 #include <QLabel>
 #include <QList>
 #include <QParallelAnimationGroup>
+#include <QPieSlice>
 #include <QPropertyAnimation>
 #include <QPushButton>
 #include <QTimer>
