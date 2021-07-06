@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+﻿cmake_minimum_required(VERSION 3.5)
 
 project(youyo LANGUAGES CXX)
 
@@ -17,14 +17,22 @@ FILE(GLOB_RECURSE HEADER_FILES "*.h")
 FILE(GLOB_RECURSE SRC_FILES "*.cpp")
 FILE(GLOB_RECURSE FORMS "*.ui")
 FILE(GLOB_RECURSE RESOURCE_FILES "*.qrc")
+
+
+
 message("--------------------------")
 message("${RESOURCE_FILES}")
+
+set(app_WINRC logo.rc)
+
 
 add_executable(youyo
     ${HEADER_FILES}
     ${SRC_FILES}
     ${FORMS}
     ${RESOURCE_FILES}
+    ${app_WINRC}
+
 )
 
 target_link_libraries(youyo Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Charts)

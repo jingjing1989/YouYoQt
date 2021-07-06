@@ -124,5 +124,6 @@
         <file>res/images/titlebar/setting.png</file>
         <file>res/images/titlebar/simpily.png</file>
         <file>res/images/titlebar/skin.png</file>
+        <file>applogo.ico</file>
     </qresource>
 </RCC>

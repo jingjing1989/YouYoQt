@@ -20,8 +20,6 @@ CHarts::CHarts(QWidget *parent) : QWidget(parent), ui(new Ui::CHarts) {
 
   initPercentBarCHart();
 
-  initScatterChart();
-
   // test 设置splitter 内控件比例 可是还是不行啊
   //  ui->splitter->setStretchFactor(0, 1 / 3);
   //  ui->splitter->setStretchFactor(1, 1 / 3);
@@ -499,7 +497,6 @@ void CHarts::initScatterChart() {
 
 void CHarts::buildScatterChart() {
   QChart *chart = ui->graphicsView_Scatter->chart();
-  //删除序列
   chart->removeAllSeries();
 
   //删除所有坐标轴
@@ -513,7 +510,7 @@ void CHarts::buildScatterChart() {
 
   //曲线序列
   QSplineSeries *splineSeries = new QSplineSeries();
-  splineSeries->setName("曲线:" + stanModel->horizontalHeaderItem(ColNoAverage)->text());
+  splineSeries->setName("Spline");
   QPen pen;
   pen.setColor(Qt::green);
   pen.setWidth(3);
@@ -521,34 +518,45 @@ void CHarts::buildScatterChart() {
 
   //散点序列
   QScatterSeries *scatterSeries = new QScatterSeries();
-  scatterSeries->setName("散点:" + stanModel->horizontalHeaderItem(ColNoAverage)->text());
-  scatterSeries->setMarkerSize(10);
+  scatterSeries->setName(stanModel->horizontalHeaderItem(ColNoAverage)->text());
+  scatterSeries->setMarkerSize(13);
   scatterSeries->setMarkerShape(QScatterSeries::MarkerShapeRectangle);
   scatterSeries->setBorderColor(Qt::black);
-  scatterSeries->setBrush(QBrush(Qt::blue));
+  scatterSeries->setBrush(QBrush(Qt::red));
+
+  for (int i = 0; i < stanModel->rowCount(); i++) {
+
+    splineSeries->append(QPointF(i, stanModel->item(i, ColNoAverage)->text().toDouble()));
+  }
 
   chart->addSeries(scatterSeries);
   chart->addSeries(splineSeries);
 
   //横坐标文字
   QStringList categoriesLst;
-  for (int i = 0; i < 5; i++) {
-    categoriesLst << ui->treeWidget_Data->topLevelItem(i)->text(0);
-
-    splineSeries->append(QPointF(i, ui->treeWidget_Data->topLevelItem(i)->text(ColNoAverage).toDouble()));
-    scatterSeries->append(QPointF(i, ui->treeWidget_Data->topLevelItem(i)->text(ColNoAverage).toDouble()));
+  for (int i = 0; i < stanModel->rowCount(); i++) {
+    categoriesLst << stanModel->item(i, ColNoName)->text();
   }
   //用于柱状图的坐标轴
   QBarCategoryAxis *axisX = new QBarCategoryAxis();
-  axisX->append(categoriesLst); //添加横坐标文字列表                                   //设置横坐标
-  axisX->setRange(categoriesLst.at(0), categoriesLst.at(categoriesLst.count() - 1)); //这只坐标轴范围
+  axisX->append(categoriesLst); //添加横坐标文字列表
+  //    chart->createDefaultAxes();
+
+  // chart->setAxisX(axisX, series);   //已废弃                                        //设置横坐标
+  // chart->setAxisX(axisX, Line);     //已废弃                                      //设置横坐标
+  axisX->setRange(categoriesLst.at(0), categoriesLst.at(categories.count() - 1)); //这只坐标轴范围
 
   //数值型坐标作为纵轴
   QValueAxis *axisY = new QValueAxis;
-  axisY->setRange(0, iniDataRowCount);
-  axisY->setTitleText("人数");
+  axisY->setRange(0, 100);
+  axisY->setTitleText("分数");
   axisY->setTickCount(6);        // 11
   axisY->setLabelFormat("%.0f"); //标签格式
+  //    axisY->setGridLineVisible(false);
+  //    axisY->setMinorTickCount(4);
+
+  //  chart->setAxisY(axisY, series); //为
+  //  chart->setAxisY(axisY, Line);
 
   chart->addAxis(axisX, Qt::AlignBottom); //坐标轴添加到图表，并指定方向
   chart->addAxis(axisY, Qt::AlignLeft);
@@ -562,6 +570,6 @@ void CHarts::buildScatterChart() {
   //    lineseries->setPointLabelsVisible(true);
   //    lineseries->setPointLabelsFormat("@yPoint");
 
-  chart->legend()->setVisible(true);             //显示图例
-  chart->legend()->setAlignment(Qt::AlignRight); //图例显示在下方
+  chart->legend()->setVisible(true);              //显示图例
+  chart->legend()->setAlignment(Qt::AlignBottom); //图例显示在下方
 }

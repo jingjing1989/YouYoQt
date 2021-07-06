@@ -30,7 +30,6 @@ SOURCES += \
     login/MyToolButton.cpp \
     setting/SettingDialog.cpp \
     setting/SystemSettingMainWindow.cpp \
-    login/ToolButtonIconText.cpp \
     login/loginDialog.cpp \
     main.cpp 
 
@@ -49,8 +48,7 @@ HEADERS += \
     login/MyToolButton.h \
     setting/SettingDialog.h \
     setting/SystemSettingMainWindow.h \
-    login/ToolButtonIconText.h \
-    login/loginDialog.h 
+    login/loginDialog.h
 
 
 # Default rules for deployment.
