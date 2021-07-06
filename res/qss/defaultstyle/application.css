@@ -1,0 +1,55 @@
+﻿QLabel#label_ipv6
+{
+    background-color:transparent;
+    color:rgb(255,215,0);
+    font-size: 8pt;
+    border: 1px solid rgb(255,215,0);
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+    qproperty-alignment: AlignCenter;
+}
+#widget_log{
+    background-color:black;
+}
+QPushButton#pushbutton_Log
+{
+    color:white;
+    background-color:rgba(23,137,228,196);
+    border-radius:6px;
+}
+#label_user,#label_password,#label_key{
+    border: 2px solid rgb(159,183,212);
+    border-right:none;
+    border-top-left-radius:6px;
+    border-top-right-radius:0px;
+    border-bottom-right-radius:0px;
+    border-bottom-left-radius:6px;
+    color:rgb(255,215,0);
+}
+QPushButton
+{
+    background: transparent;
+    color:rgb(159,183,212);
+}
+QLineEdit {
+    background-color:transparent;
+    border: 2px solid rgb(159,183,212);
+    border-top-left-radius:0px;
+    border-top-right-radius:6px;
+    border-bottom-right-radius:6px;
+    border-bottom-left-radius:0px;
+    font-size: 9pt;
+    color: #dadada;
+    padding-left: 10px;
+}
+QLineEdit:focus{
+    border: 2px solid white;
+}
+QLineEdit:hover{
+    border: 2px solid white;
+}
+
+
+

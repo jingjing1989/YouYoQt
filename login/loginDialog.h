@@ -22,12 +22,6 @@ public:
 private slots:
 
 private:
-  //设置添加icon font
-  QFont SetIconFont();
-
-  //设置思源黑
-  QFont SetSourceHanSans();
-
   void minimumSize();
 
   void checkLogin();
