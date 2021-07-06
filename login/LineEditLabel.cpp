@@ -1,4 +1,5 @@
 ﻿#include "LineEditLabel.h"
+#include "utility/CommonUtility.h"
 
 #include <QApplication>
 #include <QFile>
@@ -30,13 +31,5 @@ LineEditLabel::LineEditLabel(QWidget *parent) : QLineEdit(parent) {
   setLayout(layout);
 
   //设置样式
-  //只有对qApp才可以直接用"file:///:/qss/files/application.css"设置
-  QFile styleSheet(":/qss/res/qss/defaultstyle/LineEditLabel.css");
-
-  if (!styleSheet.open(QIODevice::ReadOnly)) {
-    qWarning("Unable to open :/files/LineEditLabel.qss");
-    return;
-  }
-
-  this->setStyleSheet(styleSheet.readAll());
+  CommonUtility::setStyleSheet(":/qss/res/qss/defaultstyle/LineEditLabel.css", this);
 }
