@@ -16,9 +16,9 @@ void Carousel::initWidget() {
   changeTimer->setInterval(CarouselSpace::INTERVAL_TIMER);
   changeTimer->start();
 
+  CommonUtility::setStyleSheet(":/qss/res/qss/defaultstyle/carousel.css", this);
   //设置中间图片置于顶层
   ui->labelThird->raise();
-
   ui->labelFifth->lower();
 
   //每个图片数据，参考双向链表思想
@@ -62,19 +62,19 @@ void Carousel::initWidget() {
   imaData5.properAnimation = new QPropertyAnimation(ui->labelFifth, CarouselSpace::ANIMATION_GEOMETRY);
   imaDataList.append(imaData5);
 
-  QString styleSheetcarousel(":/qss/res/qss/defaultstyle/carousel.css");
   for (int i = 0; i < imaDataList.size(); i++) {
     imaDataList.at(i).labelCurrent->installEventFilter(this);
     imaDataList.at(i).properAnimation->setDuration(CarouselSpace::ANIMATION_DURTION);
     imaDataList.at(i).properAnimation->setEasingCurve(QEasingCurve::BezierSpline);
     animationGroup.addAnimation(imaDataList.at(i).properAnimation);
-
-    qDebug() << "carousel: " << i;
-    CommonUtility::setStyleSheet(styleSheetcarousel, imaDataList.at(i).labelCurrent);
   }
-
-  ui->pushButtonPre->raise();
-  ui->pushButtonNext->raise();
+  ui->direction->raise();
+  ui->indicator->raise();
+  QFont iconfont("FontAwesome", 20);
+  ui->pushButtonPre->setFont(iconfont);
+  ui->pushButtonPre->setText(QChar(0xf100));
+  ui->pushButtonNext->setFont(iconfont);
+  ui->pushButtonNext->setText(QChar(0xf101));
   connect(ui->pushButtonPre, &QPushButton::clicked, [=]() {
     if (animationGroup.state() != QParallelAnimationGroup::Running) {
       this->SetPreAnimation();
@@ -91,22 +91,17 @@ void Carousel::ChangeImage() {
   if (animationGroup.state() != QParallelAnimationGroup::Running) {
     this->SetNextAnimation();
   }
-
   return;
 }
 
 void Carousel::SetNextAnimation() {
-  qDebug() << __FUNCTION__;
-  qDebug() << imaDataList.size();
   //设置每个图片向后移动 每个图片的动画起始位置是当前Label的位置
   //结束位置是其记录的前一个Label的位置
   for (int i = 0; i < imaDataList.size(); i++) {
     imaDataList.at(i).properAnimation->setStartValue(imaDataList.at(i).labelCurrent->geometry());
     imaDataList.at(i).properAnimation->setEndValue(imaDataList.at(i).labelPre->geometry());
   }
-
   animationGroup.start();
-
   if (centerIndex == CarouselSpace::SORT_FIFTH) {
     centerIndex = CarouselSpace::SORT_FIRST;
   } else {
@@ -118,7 +113,6 @@ void Carousel::SetNextAnimation() {
 }
 
 void Carousel::SetPreAnimation() {
-  qDebug() << "SetPreAnimation:" << centerIndex;
   for (int i = 0; i < imaDataList.size(); i++) {
     imaDataList.at(i).properAnimation->setStartValue(imaDataList.at(i).labelCurrent->geometry());
     imaDataList.at(i).properAnimation->setEndValue(imaDataList.at(i).labelNext->geometry());
@@ -129,7 +123,6 @@ void Carousel::SetPreAnimation() {
   } else {
     centerIndex--;
   }
-  qDebug() << "new:" << centerIndex;
   animationGroup.start();
   //图层排序
   this->sortGeometry();
@@ -139,22 +132,6 @@ void Carousel::SetPreAnimation() {
 //图片图层排序
 //
 void Carousel::sortGeometry() {
-#if 0
-  for (int i=0;i<imaDataList.size();i++) {
-      if(centerIndex == i)
-        {
-          imaDataList.at(i).labelCurrent->raise();
-          imaDataList.at(i).pushButton->setChecked(true);
-        }else
-        {
-          imaDataList.at(i).labelCurrent->lower();
-          imaDataList.at(i).pushButton->setChecked(false);
-        }
-    }
-#endif
-
-  qDebug() << "centerIndex:" << centerIndex;
-
   switch (centerIndex) {
   case CarouselSpace::SORT_FIRST: {
     imaDataList.at(3).labelCurrent->lower();
