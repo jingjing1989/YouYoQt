@@ -2,7 +2,9 @@
 #include "ui_CHarts.h"
 
 CHarts::CHarts(QWidget *parent) : QWidget(parent), ui(new Ui::CHarts) {
+
   ui->setupUi(this);
+
   stanModel = new QStandardItemModel(iniDataRowCount, fixedColumnCount, this); //数据模型
 
   //初始化数据
@@ -10,7 +12,31 @@ CHarts::CHarts(QWidget *parent) : QWidget(parent), ui(new Ui::CHarts) {
   //统计数据
   CalculateData();
 
-  ui->tableView->setModel(stanModel); //设置数据模型
+  //设置数据模型
+  ui->tableView->setModel(stanModel);
+
+  //数据模块的 itemChanged信号与自定义的槽函数关联，用于自动计算平均分
+  connect(stanModel, &QStandardItemModel::itemChanged, this, &CHarts::on_itemChanged);
+
+  // comboBox_Style 下拉框改变 修改饼图主题
+  void (QComboBox::*funSinglePara)(int) = &QComboBox::currentIndexChanged;
+  connect(ui->comboBox_Style, funSinglePara, this, [=](int index) { ui->graphicsView_Pie->chart()->setTheme(QChart::ChartTheme(index)); });
+  // connect(ui->comboBox_Style, &QComboBox::currentIndexChanged(int), this, &CHarts::on_cBoxTheme_currentIndexChanged(int));
+
+  connect(ui->comboBox_Catagory, funSinglePara, this, [=](int index) { buildPieChart(); });
+
+  void (QDoubleSpinBox::*funSingleParaSpinBox)(double) = &QDoubleSpinBox::valueChanged;
+  connect(ui->doubleSpinBox_Hole, funSingleParaSpinBox, [=](double value) {
+    QPieSeries *series;
+    series = (QPieSeries *)ui->graphicsView_Pie->chart()->series().at(0);
+    series->setHoleSize(value);
+  });
+
+  connect(ui->doubleSpinBox_Pie, funSingleParaSpinBox, [=](double value) {
+    QPieSeries *series;
+    series = (QPieSeries *)ui->graphicsView_Pie->chart()->series().at(0);
+    series->setPieSize(value);
+  });
 
   iniBarChart();
 
@@ -32,7 +58,6 @@ CHarts::~CHarts() { delete ui; }
 
 //数据初始化
 void CHarts::iniData() {
-
   QStringList headerList;
   headerList << "姓名"
              << "数学"
@@ -61,14 +86,20 @@ void CHarts::iniData() {
       sItem->setTextAlignment(Qt::AlignHCenter);
       stanModel->setItem(i, j, sItem);
     }
+    //平均分
     aveScore = aveScore / 3;
     // sItem = new QStandardItem(QString("%1").arg(aveScore));
     QString strAverage = QString::number(aveScore, 10, 2);
     sItem = new QStandardItem(strAverage);
     sItem->setTextAlignment(Qt::AlignHCenter);
-    //设置平均分不许编辑
-    //需要执行反操作
-    sItem->setFlags(sItem->flags() & (~Qt::ItemIsEditable)); //用msvc !编译不通过,~mingw和msvc都可以
+    //设置平均分不许编辑 正常颜色
+    // sItem->setFlags(sItem->flags() & (!Qt::ItemIsEditable));
+    //需要执行反操作  &按位与:两位同时为“1”，结果才为“1”，否则为0
+    // sItem->setFlags(sItem->flags() & (~Qt::ItemIsEditable)); //用msvc !编译不通过,~mingw和msvc都可以
+    //无设置属性 显示灰色不可选择
+    // sItem->setFlags(Qt::NoItemFlags);
+    //设置平均分不可选择  仅仅不可选择,可编辑
+    sItem->setFlags(sItem->flags() & (~Qt::ItemIsSelectable));
     stanModel->setItem(i, ColNoAverage, sItem);
   }
 }
@@ -304,6 +335,7 @@ void CHarts::buildPieChart() {
 
     //信号槽 鼠标落在某个分块上 此块弹出
     //带参数的信号槽
+    //定义函数指针
     void (QPieSlice::*funSinglePara)(bool) = &QPieSlice::hovered;
 
     connect(pieSlice, funSinglePara, this, [=](bool isshow) {
@@ -564,4 +596,29 @@ void CHarts::buildScatterChart() {
 
   chart->legend()->setVisible(true);             //显示图例
   chart->legend()->setAlignment(Qt::AlignRight); //图例显示在下方
+}
+
+void CHarts::on_itemChanged(QStandardItem *item) {
+  qDebug() << __FUNCTION__;
+  if (item->column() < ColNoMath || item->column() > ColNoEnglish)
+    return;
+
+  //获得行编号
+  int rowIndex = item->row();
+  qDebug() << "rowIndex" << rowIndex;
+  //
+  qreal avg = 0;
+  QStandardItem *itemtmp = nullptr;
+  for (int i = ColNoMath; i <= ColNoEnglish; i++) {
+    itemtmp = stanModel->item(rowIndex, i);
+    if (itemtmp == nullptr)
+      continue;
+    avg += itemtmp->text().toDouble();
+  }
+  avg = avg / 3;
+  qDebug() << "avg" << avg;
+
+  //更新平均分
+  itemtmp = stanModel->item(rowIndex, ColNoAverage);
+  itemtmp->setText(QString::number(avg));
 }

@@ -54,7 +54,7 @@
        <item row="0" column="0">
         <widget class="QTabWidget" name="tabWidget">
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -293,6 +293,12 @@
        </item>
        <item row="1" column="1">
         <widget class="QDoubleSpinBox" name="doubleSpinBox_Hole">
+         <property name="decimals">
+          <number>2</number>
+         </property>
+         <property name="singleStep">
+          <double>0.100000000000000</double>
+         </property>
          <property name="value">
           <double>0.100000000000000</double>
          </property>
@@ -307,6 +313,9 @@
        </item>
        <item row="1" column="4">
         <widget class="QDoubleSpinBox" name="doubleSpinBox_Pie">
+         <property name="singleStep">
+          <double>0.100000000000000</double>
+         </property>
          <property name="value">
           <double>0.600000000000000</double>
          </property>

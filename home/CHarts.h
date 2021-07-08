@@ -73,6 +73,9 @@ private:
 
   //构建散点图
   void buildScatterChart();
+
+  // table内容修改的槽函数
+  void on_itemChanged(QStandardItem *item);
 };
 
 #endif // CHARTS_H
