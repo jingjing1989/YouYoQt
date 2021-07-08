@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/qss">
-        <file>res/qss/defaultstyle/application.css</file>
+        <file>res/qss/defaultstyle/login.css</file>
         <file>res/qss/defaultstyle/carousel.css</file>
         <file>res/qss/defaultstyle/left.css</file>
         <file>res/qss/defaultstyle/leftbar.css</file>
@@ -8,17 +8,13 @@
         <file>res/qss/defaultstyle/top.css</file>
         <file>res/qss/defaultstyle/systemsetting.css</file>
         <file>res/qss/defaultstyle/LineEditLabel.css</file>
+        <file>res/qss/defaultstyle/darkTheme.css</file>
     </qresource>
     <qresource prefix="/iconfont">
         <file>res/iconFont/fontawesome-webfont.ttf</file>
         <file>res/iconFont/NotoSansCJKsc.otf</file>
     </qresource>
     <qresource prefix="/images">
-        <file>res/images/carousel/1.jpg</file>
-        <file>res/images/carousel/2.jpg</file>
-        <file>res/images/carousel/3.jpg</file>
-        <file>res/images/carousel/4.jpg</file>
-        <file>res/images/carousel/5.jpg</file>
         <file>res/images/htfloat/back.png</file>
         <file>res/images/htfloat/close.png</file>
         <file>res/images/htfloat/max.png</file>
@@ -124,5 +120,10 @@
         <file>res/images/titlebar/simpily.png</file>
         <file>res/images/titlebar/skin.png</file>
         <file>applogo.ico</file>
+        <file>res/images/carousel/1.png</file>
+        <file>res/images/carousel/2.png</file>
+        <file>res/images/carousel/3.png</file>
+        <file>res/images/carousel/4.png</file>
+        <file>res/images/carousel/5.png</file>
     </qresource>
 </RCC>

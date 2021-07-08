@@ -18,12 +18,13 @@ public:
 
   //自定义控件
   LineEditLabel *linePassword;
+  //重写圆角
+  void paintEvent(QPaintEvent *event);
 
 private slots:
 
 private:
   void minimumSize();
-
   void checkLogin();
 
 private:

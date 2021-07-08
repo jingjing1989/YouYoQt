@@ -16,11 +16,6 @@ namespace CarouselSpace {
 const int INTERVAL_TIMER = 3000;
 const int ANIMATION_DURTION = 200;
 const QByteArray ANIMATION_GEOMETRY = "geometry";
-const QString FIRST_IMAGE_PATH = ":/image/files/images/carousel/1.jpg";
-const QString SECOND_IMAGE_PATH = ":/image/files/images/carousel/2.jpg";
-const QString THIRD_IMAGE_PATH = ":/image/files/images/carousel/3.jpg";
-const QString FOURTH_IMAGE_PATH = ":/image/files/images/carousel/4.jpg";
-const QString FIFTH_IMAGE_PATH = ":/image/files/images/carousel/5.jpg";
 
 enum SortWidget {
   SORT_FIRST,

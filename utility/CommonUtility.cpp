@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QFile>
 #include <QFontDatabase>
+#include <QPalette>
 
 CommonUtility::CommonUtility() {}
 
@@ -35,9 +36,13 @@ void CommonUtility::globalInit(QApplication *app) {
   //----字体初始化----
   addIconFont();
   addDefaultFont();
-  // QApplication::setFont(QFont("Microsoft Yahei", 9));
   // 先默认黑体
+  // QApplication::setFont(QFont("Microsoft Yahei", 9));
   QApplication::setFont(QFont("SimHei", 9));
+  //----全局颜色配置----
+  setGlobalColors();
+  //----全局样式----
+  app->setStyleSheet("file:///:/qss/res/qss/defaultstyle/darkTheme.css");
 }
 
 void CommonUtility::addIconFont() {
@@ -50,6 +55,12 @@ void CommonUtility::addIconFont() {
 void CommonUtility::addDefaultFont() {
   int fontId = QFontDatabase::addApplicationFont(":/iconfont/res/iconFont/NotoSansCJKsc.otf");
   if (fontId < 0)
-    qWarning() << "NotoSansCJKsc cannot be loaded !";
+    qWarning() << "defaultFont cannot be loaded !";
   return;
+}
+
+void CommonUtility::setGlobalColors() {
+  QPalette palette("#238636", "#0d1117");
+  palette.setColor(QPalette::WindowText, "#c9d1d9");
+  QApplication::setPalette(palette);
 }

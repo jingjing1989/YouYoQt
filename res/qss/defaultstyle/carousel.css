@@ -1,31 +1,30 @@
 ﻿#labelFIrst{
-border-image:url(:/images/res/images/carousel/1.jpg);
-/*background-image:url(:/image/files/images/lefttopbar/shrinkButton_max.png);*/
-
-background-repeat: no-repeat;
-background-position: center center;
+    background-image:url(:/images/res/images/carousel/1.png);
 }
-
 #labelSecond{
-       border-image:url(:/images/res/images/carousel/2.jpg);
-background-repeat: no-repeat;
-background-position: center center;
+    background-image:url(:/images/res/images/carousel/2.png);
 }
 #labelThird{
-        border-image:url(:/images/res/images/carousel/3.jpg);
-background-repeat: no-repeat;
-background-position: center center;
-background-color:rgb(120,250,25);
+    background-image:url(:/images/res/images/carousel/3.png);
 }
 #labelForth{
-        border-image:url(:/images/res/images/carousel/4.jpg);
-background-repeat: no-repeat;
-background-position: center center;
+    background-image:url(:/images/res/images/carousel/4.png);
 }
 #labelFifth{
-        border-image:url(:/images/res/images/carousel/5.jpg);
-background-repeat: no-repeat;
-background-position: center center;
-
-
+    background-image:url(:/images/res/images/carousel/5.png);
 }
+#labelFifth,#labelForth,#labelThird,#labelSecond,#labelFIrst{
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-color:#00214c;
+    border-top-left-radius:16px;
+    border-bottom-left-radius:16px;
+}
+QPushButton {
+    background-color:#ffffff;
+}
+#pushButtonPre,#pushButtonNext{
+    background: transparent;
+    color:white;
+}
+

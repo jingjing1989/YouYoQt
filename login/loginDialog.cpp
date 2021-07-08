@@ -8,23 +8,25 @@
 #include <QFontDatabase>
 #include <QGridLayout>
 #include <QMessageBox>
+#include <QPainter>
 
-#define ICON_USER QChar(0xf21b)
+#define ICON_USER QChar(0xf007)
 #define ICON_PASSWORD QChar(0xf023)
-#define ICON_KEY QChar(0xf084)
-#define ICON_CLOSE QChar(0xf2d4)
+#define ICON_KEY QChar(0xf14c)
+#define ICON_CLOSE QChar(0xf2d3)
 #define ICON_MINI QChar(0xf2d1)
 
 loginDialog::loginDialog(QWidget *parent) : QDialog(parent), ui(new Ui::loginDialog) {
   ui->setupUi(this);
   //为对话框加上最大化最小化按钮
   this->setWindowFlags(this->windowFlags() & Qt::WindowMaximizeButtonHint & Qt::WindowMinimizeButtonHint);
+  this->setAttribute(Qt::WA_TranslucentBackground);
   //设置无边框,点击图标栏可放大缩小  最大化最小化  |Qt::FramelessWindowHint
   setWindowFlags(Qt::Dialog | Qt::WindowMinimizeButtonHint | Qt::WindowMaximizeButtonHint | Qt::FramelessWindowHint);
   //密码显示黑圆圈
   ui->lineEdit_Password->setEchoMode(QLineEdit::Password);
   //设置样式
-  CommonUtility::setStyleSheet(":/qss/res/qss/defaultstyle/application.css", this);
+  CommonUtility::setStyleSheet(":/qss/res/qss/defaultstyle/login.css", this);
   // 创建字体
   QFont iconfont("FontAwesome", 10);
   ui->label_user->setFont(iconfont);
@@ -58,4 +60,21 @@ void loginDialog::checkLogin() {
   QDialog::accept();
 
   return;
+}
+/**重写绘制算法加上圆角
+ * @brief loginDialog::paintEvent
+ * @param event
+ */
+void loginDialog::paintEvent(QPaintEvent *event) {
+  QPainter painter(this);
+  painter.setRenderHint(QPainter::Antialiasing);
+  //拿默认背景的刷子
+  painter.setBrush(QPalette().window());
+  painter.setPen(Qt::transparent);
+
+  QRect rect = this->rect();
+  rect.setWidth(rect.width() - 1);
+  rect.setHeight(rect.height() - 1);
+  painter.drawRoundedRect(rect, 15, 15);
+  QWidget::paintEvent(event);
 }
