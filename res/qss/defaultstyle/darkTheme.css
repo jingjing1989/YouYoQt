@@ -1,7 +1,44 @@
-QPushButton {
+﻿QPushButton {
     border-radius:6px;
     background:#238636;
 }
 QPushButton:hover {
-      background-color: #2ea043;
+    background-color: #2ea043;
 }
+
+
+/*table样式*/
+/*QTableView 左上角样式*/
+/*
+QTableView QTableCornerButton::section {
+    color: red;
+    background-color: rgb(64, 64, 64);
+    border: 5px solid #f6f7fa;
+    border-radius:0px;
+    border-color: rgb(64, 64, 64);
+ }
+ */
+
+/*
+ QTableView {
+    gridline-color: #c9d1d9;
+    background-color: #0d1117;
+    alternate-background-color: #161b22;
+    selection-color: white;
+    selection-background-color: rgb(77, 77, 77);
+    border: 2px groove gray;
+    border-radius: 0px;
+    padding: 2px 4px;
+}/*
+/*
+QHeaderView {
+    background-color: #0d1117;
+    min-height:29px;
+}
+
+QHeaderView::section {
+    background-color: #161b22;
+    border: 2px solid #161b22;
+    border-bottom:2px solid #c9d1d9;
+}
+*/

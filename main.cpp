@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
   app.setWindowIcon(QIcon(":/images/applogo.ico"));
 
   loginDialog login;
-  CommonUtility::globalInit(&app);
+  // CommonUtility::globalInit(&app);
   if (login.exec() == QDialog::Accepted) //调用login.exec()，阻塞主控制流，直到完成返回
   {
 #if 0
@@ -34,14 +34,19 @@ int main(int argc, char *argv[]) {
        SystemSettingMainWindow set;
        set.show();
 
-       MyTableWidget home;
-       home.show();
-
 #endif
+
     MainWindowHome home;
     home.show();
     CHarts chart;
     chart.show();
+
+    MyTableWidget table;
+    table.show();
+
+    //    Test t(nullptr);
+    //    t.show();
+
     return app.exec();
   }
 
