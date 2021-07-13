@@ -35,14 +35,14 @@ void CommonUtility::globalInit(QApplication *app) {
 
   //----字体初始化----
   addIconFont();
-  addDefaultFont();
+  //  addDefaultFont();
   // 先默认黑体
   // QApplication::setFont(QFont("Microsoft Yahei", 9));
   QApplication::setFont(QFont("SimHei", 9));
   //----全局颜色配置----
   setGlobalColors();
   //----全局样式----
-  app->setStyleSheet("file:///:/qss/res/qss/defaultstyle/darkTheme.css");
+  app->setStyleSheet("file:///:/qss/res/qss/darktheme.css");
 }
 
 void CommonUtility::addIconFont() {
@@ -60,7 +60,6 @@ void CommonUtility::addDefaultFont() {
 }
 
 void CommonUtility::setGlobalColors() {
-  QPalette palette("#238636", "#0d1117");
-  palette.setColor(QPalette::WindowText, "#c9d1d9");
+  QPalette palette("#0d1117");
   QApplication::setPalette(palette);
 }
