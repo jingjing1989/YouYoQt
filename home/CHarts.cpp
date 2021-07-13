@@ -23,18 +23,18 @@ CHarts::CHarts(QWidget *parent) : QWidget(parent), ui(new Ui::CHarts) {
   connect(ui->comboBox_Style, funSinglePara, this, [=](int index) { ui->graphicsView_Pie->chart()->setTheme(QChart::ChartTheme(index)); });
   // connect(ui->comboBox_Style, &QComboBox::currentIndexChanged(int), this, &CHarts::on_cBoxTheme_currentIndexChanged(int));
 
-  connect(ui->comboBox_Catagory, funSinglePara, this, [=](int index) { buildPieChart(); });
+  connect(ui->comboBox_Catagory, funSinglePara, this, [=]() { buildPieChart(); });
 
   void (QDoubleSpinBox::*funSingleParaSpinBox)(double) = &QDoubleSpinBox::valueChanged;
   connect(ui->doubleSpinBox_Hole, funSingleParaSpinBox, [=](double value) {
     QPieSeries *series;
-    series = (QPieSeries *)ui->graphicsView_Pie->chart()->series().at(0);
+    series = static_cast<QPieSeries *>(ui->graphicsView_Pie->chart()->series().at(0));
     series->setHoleSize(value);
   });
 
   connect(ui->doubleSpinBox_Pie, funSingleParaSpinBox, [=](double value) {
     QPieSeries *series;
-    series = (QPieSeries *)ui->graphicsView_Pie->chart()->series().at(0);
+    series = static_cast<QPieSeries *>(ui->graphicsView_Pie->chart()->series().at(0));
     series->setPieSize(value);
   });
 
@@ -96,10 +96,10 @@ void CHarts::iniData() {
     // sItem->setFlags(sItem->flags() & (!Qt::ItemIsEditable));
     //需要执行反操作  &按位与:两位同时为“1”，结果才为“1”，否则为0
     // sItem->setFlags(sItem->flags() & (~Qt::ItemIsEditable)); //用msvc !编译不通过,~mingw和msvc都可以
-    //无设置属性 显示灰色不可选择
-    // sItem->setFlags(Qt::NoItemFlags);
+    //无设置属性 显示灰色不可选择 不可编辑
+    sItem->setFlags(Qt::NoItemFlags);
     //设置平均分不可选择  仅仅不可选择,可编辑
-    sItem->setFlags(sItem->flags() & (~Qt::ItemIsSelectable));
+    // sItem->setFlags(sItem->flags() & (~Qt::ItemIsSelectable));
     stanModel->setItem(i, ColNoAverage, sItem);
   }
 }
@@ -153,6 +153,8 @@ void CHarts::CalculateData() {
     treeItem = ui->treeWidget_Data->topLevelItem(0);
     treeItem->setText(i, QString::number(cnt50));
     treeItem->setTextAlignment(i, Qt::AlignHCenter);
+    //设置为红色
+    treeItem->setForeground(i, QBrush(QColor(255, 0, 0)));
     // 60 - 70
     treeItem = ui->treeWidget_Data->topLevelItem(1);
     treeItem->setText(i, QString::number(cnt60));
