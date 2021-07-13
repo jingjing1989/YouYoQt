@@ -7,6 +7,9 @@
     border-radius:3px;
     qproperty-alignment: AlignCenter;
 }
+QPushButton{
+    border-color: transparent;
+}
 #label_user,#label_password,#label_key{
     border: 2px solid rgb(159,183,212);
     border-right:none;
@@ -20,6 +23,13 @@
     background: transparent;
     color:rgb(159,183,212);
 }
+#pushbutton_Log{
+    background-color:#238636;
+    height:2em;
+}
+#pushbutton_Log:hover{
+    background-color:#2ea043
+}
 QLineEdit {
     background-color:transparent;
     border: 2px solid rgb(159,183,212);
@@ -30,13 +40,12 @@ QLineEdit {
     font-size: 9pt;
     color: #dadada;
     padding-left: 10px;
-}
-QLineEdit:focus{
-    border: 2px solid white;
+    height:2em;
 }
 QLineEdit:hover{
-    border: 2px solid white;
+    border-color:#ffffff;
 }
+
 
 
 

@@ -8,11 +8,10 @@
         <file>res/qss/defaultstyle/top.css</file>
         <file>res/qss/defaultstyle/systemsetting.css</file>
         <file>res/qss/defaultstyle/LineEditLabel.css</file>
-        <file>res/qss/defaultstyle/darkTheme.css</file>
+        <file>res/qss/darktheme.css</file>
     </qresource>
     <qresource prefix="/iconfont">
         <file>res/iconFont/fontawesome-webfont.ttf</file>
-        <file>res/iconFont/NotoSansCJKsc.otf</file>
     </qresource>
     <qresource prefix="/images">
         <file>res/images/htfloat/back.png</file>
@@ -125,5 +124,23 @@
         <file>res/images/carousel/3.png</file>
         <file>res/images/carousel/4.png</file>
         <file>res/images/carousel/5.png</file>
+        <file>res/images/darktheme/add_bottom.png</file>
+        <file>res/images/darktheme/add_left.png</file>
+        <file>res/images/darktheme/add_right.png</file>
+        <file>res/images/darktheme/add_top.png</file>
+        <file>res/images/darktheme/branch_close.png</file>
+        <file>res/images/darktheme/branch_open.png</file>
+        <file>res/images/darktheme/calendar_nextmonth.png</file>
+        <file>res/images/darktheme/calendar_prevmonth.png</file>
+        <file>res/images/darktheme/checkbox_checked.png</file>
+        <file>res/images/darktheme/checkbox_checked_disable.png</file>
+        <file>res/images/darktheme/checkbox_parcial.png</file>
+        <file>res/images/darktheme/checkbox_parcial_disable.png</file>
+        <file>res/images/darktheme/checkbox_unchecked.png</file>
+        <file>res/images/darktheme/checkbox_unchecked_disable.png</file>
+        <file>res/images/darktheme/radiobutton_checked.png</file>
+        <file>res/images/darktheme/radiobutton_checked_disable.png</file>
+        <file>res/images/darktheme/radiobutton_unchecked.png</file>
+        <file>res/images/darktheme/radiobutton_unchecked_disable.png</file>
     </qresource>
 </RCC>

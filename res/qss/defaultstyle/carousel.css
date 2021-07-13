@@ -22,9 +22,12 @@
 }
 QPushButton {
     background-color:#ffffff;
+    min-height:6px;
+    padding:0;
 }
 #pushButtonPre,#pushButtonNext{
     background: transparent;
     color:white;
+    min-height:2em;
 }
 
