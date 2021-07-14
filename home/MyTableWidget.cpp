@@ -16,6 +16,10 @@
 MyTableWidget::MyTableWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MyTableWidget) {
   ui->setupUi(this);
 
+  this->setWindowTitle("New Tab");               //窗口标题
+  this->setAttribute(Qt::WA_DeleteOnClose);      //关闭时自动删除
+  this->setWindowFlags(Qt::FramelessWindowHint); //去掉标题栏
+
   //需要splitter水平策略设置为fixed
   //  ui->splitter->setStretchFactor(0, 1);
   //  ui->splitter->setStretchFactor(1, 1);

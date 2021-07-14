@@ -40,6 +40,9 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
+     <property name="handleWidth">
+      <number>0</number>
+     </property>
      <widget class="QGroupBox" name="groupBox_Data">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -55,7 +58,7 @@
         <number>0</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>3</number>
        </property>
        <property name="rightMargin">
         <number>0</number>
@@ -84,6 +87,15 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <attribute name="horizontalHeaderCascadingSectionResizes">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="horizontalHeaderMinimumSectionSize">
+              <number>5</number>
+             </attribute>
+             <attribute name="verticalHeaderMinimumSectionSize">
+              <number>5</number>
+             </attribute>
             </widget>
            </item>
           </layout>
@@ -222,7 +234,7 @@
         <number>0</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>3</number>
        </property>
        <property name="rightMargin">
         <number>0</number>
@@ -254,7 +266,7 @@
         <number>0</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>3</number>
        </property>
        <property name="rightMargin">
         <number>0</number>
@@ -425,6 +437,9 @@
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
+     <property name="handleWidth">
+      <number>0</number>
+     </property>
      <widget class="QGroupBox" name="groupBox_Stacked">
       <property name="title">
        <string>堆叠柱状图</string>
@@ -434,7 +449,7 @@
         <number>0</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>3</number>
        </property>
        <property name="rightMargin">
         <number>0</number>
@@ -459,7 +474,7 @@
         <number>0</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>3</number>
        </property>
        <property name="rightMargin">
         <number>0</number>
@@ -484,7 +499,7 @@
         <number>0</number>
        </property>
        <property name="topMargin">
-        <number>0</number>
+        <number>3</number>
        </property>
        <property name="rightMargin">
         <number>0</number>

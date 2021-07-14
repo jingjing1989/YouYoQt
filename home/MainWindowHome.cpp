@@ -7,6 +7,7 @@
 #include <QPoint>
 #include <QPropertyAnimation>
 #include <QtDebug>
+#include <iostream>
 
 #ifdef Q_OS_WIN
 #include "windows.h"
@@ -32,10 +33,14 @@ MainWindowHome::MainWindowHome(QWidget *parent) : QMainWindow(parent), ui(new Ui
 
   // ui->shrinkButton->setStyleSheet("border-image:url(:/image/files/images/lefttopbar/shrinkButton_max.png)");
 
-  padding = 5;
+  // padding = 5;
   this->installEventFilter(this);
 
-  initControl();
+  //初始化左边栏
+  initLeftBar();
+
+  //初始化MDI
+  initMDI();
 }
 
 MainWindowHome::~MainWindowHome() { delete ui; }
@@ -82,10 +87,10 @@ bool MainWindowHome::nativeEvent(const QByteArray &eventType, void *message, lon
   switch (msg->message) {
   case WM_NCHITTEST: {
     QPoint pos = mapFromGlobal(QPoint(LOWORD(msg->lParam), HIWORD(msg->lParam)));
-    bool left = pos.x() < padding;
-    bool right = pos.x() > width() - padding;
-    bool top = pos.y() < padding;
-    bool bottom = pos.y() > height() - padding;
+    bool left = pos.x() < MainWindowHomeSpace::LeftPadding;
+    bool right = pos.x() > width() - MainWindowHomeSpace::LeftPadding;
+    bool top = pos.y() < MainWindowHomeSpace::LeftPadding;
+    bool bottom = pos.y() > height() - MainWindowHomeSpace::LeftPadding;
     if (left && top) {
       *result = HTTOPLEFT;
     } else if (left && bottom) {
@@ -121,30 +126,58 @@ bool MainWindowHome::nativeEvent(const QByteArray &eventType, void *message, lon
 bool MainWindowHome::winEvent(MSG *message, long *result) { return nativeEvent("windows_generic_MSG", message, result); }
 #endif
 
-void MainWindowHome::initControl() {
-  //    ui.titleWidget->setFixedWidth(this->width());
-  //    //这里就是那黄色区域
-  //    StatusWidget* pWidget = new StatusWidget(ui.upWidget);
-  //    pWidget->setFixedSize(this->width(), 48);
-  //    pWidget->move(0, ui.titleWidget->height());
+void MainWindowHome::initLeftBar() {
+
+  qDebug() << __FUNCTION__;
+
+  // ui->leftBar->setFixedHeight(this->height());
+
+  qDebug() << "ui->leftBar:" << ui->leftBar->height();
+
   //点击效果按钮，进行效果展示
-  connect(ui->shrinkButton, &QPushButton::clicked, [=]() {
+  connect(ui->shrinkButton, &QPushButton::toggled, [=](bool isChecked) {
     //自定义属性shrinkTree
-    QPropertyAnimation *animation = new QPropertyAnimation(ui->treeWidgetLeft, "shrinkTree");
+    QPropertyAnimation *animation = new QPropertyAnimation(ui->leftBar, "shrinkTree");
     animation->setDuration(300);
     animation->setEasingCurve(QEasingCurve::InQuad);
-    //高于最小高度，代表处于展开状态
-    if (ui->treeWidgetLeft->width() > 30) {
-      animation->setEndValue(30);
-      ui->treeWidgetLeft->setExpandsOnDoubleClick(false);
-      ui->treeWidgetLeft->setExpand(false);
+
+    //按下是收起
+    if (isChecked) {
+      qDebug() << "isChecked  ui->leftBar->width() :" << ui->leftBar->width();
+      animation->setEndValue(25);
+      ui->leftBar->setExpandsOnDoubleClick(false);
+      ui->leftBar->setExpand(false);
     }
-    //否就是收缩状态
+    // not check 是要伸展开
     else {
-      animation->setEndValue(ui->treeWidgetLeft->width() + 180);
-      ui->treeWidgetLeft->setExpandsOnDoubleClick(true);
-      ui->treeWidgetLeft->setExpand(true);
+      qDebug() << "not check   ui->leftBar->width() :" << ui->leftBar->width();
+      // animation->setEndValue(ui->treeWidgetLeft->width() + 10);
+      animation->setEndValue(200);
+      ui->leftBar->setExpandsOnDoubleClick(true);
+      ui->leftBar->setExpand(true);
     }
     animation->start(QAbstractAnimation::DeleteWhenStopped);
   });
+}
+
+//初始化MDI
+void MainWindowHome::initMDI() {
+  CHarts *pchart = new CHarts(this);
+  // pchart->setWindowFlags(Qt::FramelessWindowHint);
+  pchart->setWindowTitle(tr("我的首页"));
+
+  QMdiSubWindow *subWindow1 = new QMdiSubWindow;
+  subWindow1->setWidget(pchart);
+  //设置关闭删除
+  subWindow1->setAttribute(Qt::WA_DeleteOnClose);
+
+  ui->mdiArea->addSubWindow(subWindow1);
+
+  ui->mdiArea->setViewMode(QMdiArea::TabbedView); // Tab多页显示模式
+  ui->mdiArea->setTabsClosable(true);             //页面可关闭
+  pchart->showMaximized();
+
+  // pchart->show();
+
+  // this->setWindowState(Qt::WindowMaximized); //窗口最大化显示
 }

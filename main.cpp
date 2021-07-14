@@ -4,6 +4,7 @@
 #include <QDialog>
 
 #include "home/CHarts.h"
+#include "home/MainWindow.h"
 #include "home/MainWindowHome.h"
 #include "home/MyTableWidget.h"
 #include "login/loginDialog.h"
@@ -38,11 +39,13 @@ int main(int argc, char *argv[]) {
 
     MainWindowHome home;
     home.show();
-    CHarts chart;
-    chart.show();
+    //    CHarts chart;
+    //    chart.show();
 
-    MyTableWidget table;
-    table.show();
+    //    MyTableWidget table;
+    //    table.show();
+    //    MainWindow window1;
+    //    window1.show();
 
     //    Test t(nullptr);
     //    t.show();

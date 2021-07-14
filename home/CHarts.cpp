@@ -12,9 +12,6 @@ CHarts::CHarts(QWidget *parent) : QWidget(parent), ui(new Ui::CHarts) {
   //统计数据
   CalculateData();
 
-  //设置数据模型
-  ui->tableView->setModel(stanModel);
-
   //数据模块的 itemChanged信号与自定义的槽函数关联，用于自动计算平均分
   connect(stanModel, &QStandardItemModel::itemChanged, this, &CHarts::on_itemChanged);
 
@@ -58,6 +55,14 @@ CHarts::~CHarts() { delete ui; }
 
 //数据初始化
 void CHarts::iniData() {
+
+  //设置了这种缩放方式之后，表头就不能再被拉伸完全失去响应。
+  //  ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+  //  ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+  //  ui->tableView->horizontalHeader()->setMinimumSectionSize(10);
+  //  ui->tableView->verticalHeader()->setMinimumSectionSize(10);
+
+  //表头
   QStringList headerList;
   headerList << "姓名"
              << "数学"
@@ -66,6 +71,8 @@ void CHarts::iniData() {
              << "平均分";
   //设置表头文字
   stanModel->setHorizontalHeaderLabels(headerList);
+  //设置列数
+  stanModel->setColumnCount(headerList.size());
 
   //设置随机数
   qsrand(QTime::currentTime().second());
@@ -73,7 +80,7 @@ void CHarts::iniData() {
     QString stuName = QString("学生%2").arg(i + 1);
     //创建item
     QStandardItem *sItem = new QStandardItem(stuName);
-    sItem->setTextAlignment(Qt::AlignHCenter);
+    sItem->setTextAlignment(Qt::AlignCenter);
     stanModel->setItem(i, ColNoName, sItem);
 
     qreal aveScore = 0;
@@ -83,7 +90,7 @@ void CHarts::iniData() {
       // sItem = new QStandardItem(QString::asprintf("%0.f", score));
       QString strScore = QString::number(score, 10, 1);
       sItem = new QStandardItem(strScore);
-      sItem->setTextAlignment(Qt::AlignHCenter);
+      sItem->setTextAlignment(Qt::AlignCenter);
       stanModel->setItem(i, j, sItem);
     }
     //平均分
@@ -91,7 +98,7 @@ void CHarts::iniData() {
     // sItem = new QStandardItem(QString("%1").arg(aveScore));
     QString strAverage = QString::number(aveScore, 10, 2);
     sItem = new QStandardItem(strAverage);
-    sItem->setTextAlignment(Qt::AlignHCenter);
+    sItem->setTextAlignment(Qt::AlignCenter);
     //设置平均分不许编辑 正常颜色
     // sItem->setFlags(sItem->flags() & (!Qt::ItemIsEditable));
     //需要执行反操作  &按位与:两位同时为“1”，结果才为“1”，否则为0
@@ -102,6 +109,20 @@ void CHarts::iniData() {
     // sItem->setFlags(sItem->flags() & (~Qt::ItemIsSelectable));
     stanModel->setItem(i, ColNoAverage, sItem);
   }
+  //设置数据模型
+  ui->tableView->setModel(stanModel);
+
+  //根据内容来确定列宽度 要放在SetModel之后才有作用
+  ui->tableView->resizeColumnsToContents();
+  qDebug() << "stanModel->columnCount():  " << stanModel->columnCount();
+  qDebug() << "ui->tableView->horizontalHeader()->count():  " << ui->tableView->horizontalHeader()->count();
+
+  //每列设置宽度 要放在SetModel之后才有作用  setColumnWidth后还可以左右拉单元格
+  for (int i = 0; i < ui->tableView->horizontalHeader()->count(); i++) {
+    ui->tableView->setColumnWidth(i, ui->tableView->columnWidth(i) + 20); //多一些空余控件，不然每列内容很挤
+    qDebug() << "ui->tableView->columnWidth(i) + 50:" << ui->tableView->columnWidth(i) + 50;
+  }
+  // m_tableView->horizontalHeader()->setStretchLastSection(true);        //最后一列补全所有空白位置
 }
 //统计数据 计算各个分数段数据
 void CHarts::CalculateData() {

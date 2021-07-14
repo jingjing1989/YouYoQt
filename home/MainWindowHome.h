@@ -6,10 +6,16 @@
 #include <QMainWindow>
 #include <QObject>
 
+#include "CHarts.h"
 #include "MyLeftBar.h"
+#include "MyTableWidget.h"
 
 namespace Ui {
 class MainWindowHome;
+}
+
+namespace MainWindowHomeSpace {
+const int LeftPadding = 4;
 }
 
 class MainWindowHome : public QMainWindow {
@@ -30,9 +36,12 @@ private:
 private:
   Ui::MainWindowHome *ui;
 
-  int padding;
+  // int padding = MainWindowHomeSpace::LeftPadding;
 
-  void initControl();
+  void initLeftBar();
+
+  //初始化MDI
+  void initMDI();
 };
 
 #endif // MAINWINDOWHOME_H
