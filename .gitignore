@@ -10,6 +10,17 @@
 *.dll
 *.dylib
 
+#cef
+/CEFWrapper/Debug
+/CEFWrapper/include
+/CEFWrapper/libcef_dll
+/CEFWrapper/Release
+/CEFWrapper/Resources
+
+
+#production
+/build
+
 # Qt-es
 object_script.*.Release
 object_script.*.Debug
