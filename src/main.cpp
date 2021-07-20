@@ -13,6 +13,7 @@
 #include "setting/SettingDialog.h"
 #include "setting/SystemSettingMainWindow.h"
 #include "utility/CommonUtility.h"
+#include "web/client.h";
 
 #include "Test.h"
 
@@ -40,6 +41,8 @@ int main(int argc, char *argv[]) {
 
     MainWindowHome home;
     home.show();
+    Client c;
+    c.show();
 
     //    NetWorkWidget net;
     //    net.show();
