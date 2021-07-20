@@ -16,15 +16,15 @@
 MyTableWidget::MyTableWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MyTableWidget) {
   ui->setupUi(this);
 
-  this->setWindowTitle("New Tab");               //窗口标题
-  this->setAttribute(Qt::WA_DeleteOnClose);      //关闭时自动删除
-  this->setWindowFlags(Qt::FramelessWindowHint); //去掉标题栏
+  //  this->setWindowTitle("New Tab");               //窗口标题
+  //  this->setAttribute(Qt::WA_DeleteOnClose);      //关闭时自动删除
+  //  this->setWindowFlags(Qt::FramelessWindowHint); //去掉标题栏
 
-  //需要splitter水平策略设置为fixed
-  //  ui->splitter->setStretchFactor(0, 1);
-  //  ui->splitter->setStretchFactor(1, 1);
-  //  ui->splitter->setStretchFactor(2, 1);
-  //  ui->splitter->setStretchFactor(3, 3);
+  //设置初始分割比例
+  ui->splitter->setStretchFactor(0, 1);
+  ui->splitter->setStretchFactor(1, 1);
+  ui->splitter->setStretchFactor(2, 1);
+  ui->splitter->setStretchFactor(3, 2);
 
   initTableAbstract();
 
@@ -61,7 +61,7 @@ MyTableWidget::MyTableWidget(QWidget *parent) : QWidget(parent), ui(new Ui::MyTa
 
   connect(ui->toolButton_OpenFile, &QToolButton::clicked, this, &MyTableWidget::OpenFile);
 
-  //点击tabledata
+  //点击tabledata 单元格
   connect(ui->tableView_Data, &QTableView::clicked, this, &MyTableWidget::updateTableAbstract);
 
   connect(ui->tableView_Data, &QTableView::clicked, this, &MyTableWidget::updateWidgetSelect);
@@ -347,7 +347,8 @@ void MyTableWidget::initTableData() {
   header->setHidden(true); // 隐藏行号
 
   //创建QStandardItemModel
-  /*QStandardItemModel*/ stanModel = new QStandardItemModel(10, 9, this); //数据模型
+  //数据模型 初始只显示表头
+  QStandardItemModel *stanModel = new QStandardItemModel(0, 9, this);
   //设置表头
   stanModel->setHeaderData(0, Qt::Horizontal, QString(tr("对象代号")));
   stanModel->setHeaderData(1, Qt::Horizontal, QString(tr("证券名称")));
@@ -429,8 +430,10 @@ void MyTableWidget::initTableDataFromStringList(QStringList &aFileContent) { //�
   QString header = aFileContent.at(0); //第1行是表头
   QStringList headerList = header.split(QRegExp("\\s+"), QString::SkipEmptyParts);
 
-  int rowCnt = aFileContent.count();  //文本行数，第1行是标题
-  stanModel->setRowCount(rowCnt - 1); //实际数据行数
+  int rowCnt = aFileContent.count(); //文本行数，第1行是标题
+  QStandardItemModel *modelData = qobject_cast<QStandardItemModel *>(ui->tableView_Data->model());
+
+  modelData->setRowCount(rowCnt - 1); //实际数据行数
   // QStandardItemModel *stanModel = new QStandardItemModel(10, 9, this); //数据模型
 
   // stanModel->setHorizontalHeaderLabels(headerList); //设置表头文字
@@ -449,16 +452,16 @@ void MyTableWidget::initTableDataFromStringList(QStringList &aFileContent) { //�
         continue;
       std::cout << " j:" << j << std::endl;
       aItem = new QStandardItem(tmpList.at(j)); //创建item
-      stanModel->setItem(i - 1, j, aItem);      //为模型的某个行列位置设置Item
+      modelData->setItem(i - 1, j, aItem);      //为模型的某个行列位置设置Item
 
       //设置可选择 不可编辑
-      stanModel->item(i - 1, j)->setFlags(stanModel->item(i - 1, j)->flags() & (~Qt::ItemIsEditable));
+      modelData->item(i - 1, j)->setFlags(modelData->item(i - 1, j)->flags() & (~Qt::ItemIsEditable));
       std::cout << "00" << std::endl;
       //设置居中
-      stanModel->item(i - 1, j)->setTextAlignment(Qt::AlignCenter);
+      modelData->item(i - 1, j)->setTextAlignment(Qt::AlignCenter);
       std::cout << "11" << std::endl;
       //设置字体
-      stanModel->item(i - 1, j)->setFont(QFont("", 8, QFont::Normal));
+      modelData->item(i - 1, j)->setFont(QFont("", 8, QFont::Normal));
       std::cout << "22" << std::endl;
     }
 
@@ -474,13 +477,7 @@ void MyTableWidget::initTableDataFromStringList(QStringList &aFileContent) { //�
 
 //更新TableAbstract 左上角表格
 void MyTableWidget::updateTableAbstract(QModelIndex index) {
-  //获得tableview的model
-  QStandardItemModel *modelAbstract = qobject_cast<QStandardItemModel *>(ui->tableView_Abstract->model());
-  QStandardItemModel *modelData = qobject_cast<QStandardItemModel *>(ui->tableView_Data->model());
-}
-
-//更新TableInfo 第二列Widget的第二个表格
-void MyTableWidget::updateTableInfo(QModelIndex index) {
+  qDebug() << __FUNCTION__;
   //获得tableview的model
   QStandardItemModel *modelAbstract = qobject_cast<QStandardItemModel *>(ui->tableView_Abstract->model());
   QStandardItemModel *modelData = qobject_cast<QStandardItemModel *>(ui->tableView_Data->model());
@@ -507,7 +504,15 @@ void MyTableWidget::updateTableInfo(QModelIndex index) {
   modelAbstract->item(1, 1)->setText(strPer);
 }
 
+//更新TableInfo 第二列Widget的第二个表格
+void MyTableWidget::updateTableInfo(QModelIndex index) {
+  qDebug() << __FUNCTION__;
+  //获得tableview的model
+  QStandardItemModel *modelAbstract = qobject_cast<QStandardItemModel *>(ui->tableView_Abstract->model());
+  QStandardItemModel *modelData = qobject_cast<QStandardItemModel *>(ui->tableView_Data->model());
+}
 void MyTableWidget::updateWidgetSelect(QModelIndex index) {
+  qDebug() << __FUNCTION__;
   //清除
   ui->lineEdit_No->clear();
   ui->label_Name->clear();
@@ -518,20 +523,26 @@ void MyTableWidget::updateWidgetSelect(QModelIndex index) {
 
   //号码
   int rowIndex = index.row();
-  QString strNo = stanModel->item(rowIndex, MyTableWidgetSpace::Data_No)->text();
+  qDebug() << "rowIndex" << rowIndex;
+  //  if (rowIndex + 1 > stanModel->rowCount()) {
+  //    qDebug() << "无内容" << rowIndex;
+  //    return;
+  //  }
+  QStandardItemModel *modelData = qobject_cast<QStandardItemModel *>(ui->tableView_Data->model());
+  QString strNo = modelData->item(rowIndex, MyTableWidgetSpace::Data_No)->text();
   ui->lineEdit_No->setText(strNo);
   //名称
-  QString strName = stanModel->item(rowIndex, MyTableWidgetSpace::Data_Name)->text();
+  QString strName = modelData->item(rowIndex, MyTableWidgetSpace::Data_Name)->text();
   ui->label_Name->setText(strName);
   //价格
-  QString strPrice = stanModel->item(rowIndex, MyTableWidgetSpace::Data_Price)->text();
+  QString strPrice = modelData->item(rowIndex, MyTableWidgetSpace::Data_Price)->text();
   ui->doubleSpinBox_Price->setValue(strPrice.toDouble());
   //数量
-  QString strNUm = stanModel->item(rowIndex, MyTableWidgetSpace::Data_Number)->text();
+  QString strNUm = modelData->item(rowIndex, MyTableWidgetSpace::Data_Number)->text();
   ui->doubleSpinBox_Number->setValue(strNUm.toDouble());
 
   //最大可卖
-  QString strMax = stanModel->item(rowIndex, MyTableWidgetSpace::Data_Available)->text();
+  QString strMax = modelData->item(rowIndex, MyTableWidgetSpace::Data_Available)->text();
   ui->lineEdit_Max->setText(strMax);
 }
 

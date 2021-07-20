@@ -161,3 +161,5 @@ void MyLeftBar::setExpandsOnDoubleClick(bool isExpand) {
 }
 
 void MyLeftBar::setExpand(bool isExpand) { ui->treeWidget->setItemsExpandable(isExpand); }
+
+QTreeWidget *MyLeftBar::GetTreeWidget() { return ui->treeWidget; }

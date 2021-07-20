@@ -20,10 +20,10 @@ MainWindowHome::MainWindowHome(QWidget *parent) : QMainWindow(parent), ui(new Ui
 
   //设置样式
   //只有对qApp才可以直接用"file:///:/qss/files/application.css"设置
-  QString styleSheet(":/qss/res/qss/defaultstyle/top.css");
-  CommonUtility::setStyleSheet(styleSheet, this);
-  QString styleSheetApp(":/qss/res/qss/defaultstyle/application.css");
-  CommonUtility::setStyleSheet(styleSheetApp, this);
+  // QString styleSheet(":/qss/res/qss/defaultstyle/top.css");
+  // CommonUtility::setStyleSheet(styleSheet, this);
+  //  QString styleSheetApp(":/qss/res/qss/defaultstyle/application.css");
+  //  CommonUtility::setStyleSheet(styleSheetApp, this);
 
   QString styleSheetlefttop(":/qss/res/qss/defaultstyle/lefttop.css");
   CommonUtility::setStyleSheet(styleSheetlefttop, ui->shrinkButton);
@@ -41,6 +41,8 @@ MainWindowHome::MainWindowHome(QWidget *parent) : QMainWindow(parent), ui(new Ui
 
   //初始化MDI
   initMDI();
+
+  connect(ui->leftBar->GetTreeWidget(), &QTreeWidget::itemClicked, this, &MainWindowHome::changeMDISubWindow);
 }
 
 MainWindowHome::~MainWindowHome() { delete ui; }
@@ -180,4 +182,40 @@ void MainWindowHome::initMDI() {
   // pchart->show();
 
   // this->setWindowState(Qt::WindowMaximized); //窗口最大化显示
+}
+
+void MainWindowHome::changeMDISubWindow(QTreeWidgetItem *current, int column) {
+
+  QString strText = current->text(column);
+  //判断页面是否已经存在 若已经打开则设为当前页面
+  foreach (QMdiSubWindow *subWindow, ui->mdiArea->subWindowList()) {
+    // MdiChild *mdiChild = qobject_cast<MdiChild *>(window);
+    if (subWindow->windowTitle() == strText) { //如果已经打开过，则获得焦点
+      ui->mdiArea->setActiveSubWindow(subWindow);
+      QSize size = ui->mdiArea->size();
+      subWindow->resize(size);
+      ui->mdiArea->setActiveSubWindow(subWindow);
+      return;
+    }
+  }
+
+  if (strText == "普通交易") {
+    MyTableWidget *tableWidget = new MyTableWidget(this);
+    tableWidget->setWindowTitle(tr("普通交易"));
+
+    QMdiSubWindow *subWindow1 = new QMdiSubWindow;
+    subWindow1->setWidget(tableWidget);
+    //设置关闭删除
+    subWindow1->setAttribute(Qt::WA_DeleteOnClose);
+
+    ui->mdiArea->addSubWindow(subWindow1);
+    tableWidget->show();
+    QSize size = ui->mdiArea->size();
+    subWindow1->resize(size);
+    ui->mdiArea->setActiveSubWindow(subWindow1);
+
+    /*      ui->mdiArea->setViewMode(QMdiArea::TabbedView); // Tab多页显示模式
+          ui->mdiArea->setTabsClosable(true);     */        //页面可关闭
+    // tableWidget->showMaximized();
+  }
 }

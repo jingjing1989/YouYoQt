@@ -23,6 +23,8 @@ public:
 
   void setExpand(bool isExpand);
 
+  QTreeWidget *GetTreeWidget();
+
 private:
   Ui::MyLeftBar *ui;
 

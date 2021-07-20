@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1700</width>
+    <width>1718</width>
     <height>580</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -19,7 +19,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_5">
+  <layout class="QGridLayout" name="gridLayout_4">
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -38,13 +38,16 @@
    <item row="0" column="0">
     <widget class="QSplitter" name="splitter">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="handleWidth">
+      <number>0</number>
      </property>
      <property name="childrenCollapsible">
       <bool>false</bool>
@@ -222,46 +225,36 @@
       </layout>
      </widget>
      <widget class="QWidget" name="widget_3" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <property name="leftMargin">
         <number>0</number>
        </property>
        <property name="topMargin">
-        <number>11</number>
+        <number>0</number>
        </property>
        <property name="rightMargin">
-        <number>1</number>
+        <number>0</number>
        </property>
        <property name="bottomMargin">
-        <number>1</number>
+        <number>0</number>
        </property>
-       <property name="horizontalSpacing">
-        <number>1</number>
+       <property name="spacing">
+        <number>0</number>
        </property>
-       <property name="verticalSpacing">
-        <number>5</number>
-       </property>
-       <item row="6" column="13">
-        <spacer name="horizontalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="6" column="9">
-        <widget class="QRadioButton" name="radioButton_OneThird">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_3">
          <property name="text">
-          <string>1/3</string>
+          <string>用户账号</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="5" colspan="8">
+       <item row="0" column="1">
         <widget class="QComboBox" name="comboBox">
          <item>
           <property name="text">
@@ -280,100 +273,6 @@
          </item>
         </widget>
        </item>
-       <item row="9" column="5">
-        <spacer name="horizontalSpacer_11">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>52</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="6" column="7">
-        <widget class="QRadioButton" name="radioButton_Half">
-         <property name="text">
-          <string>1/2</string>
-         </property>
-        </widget>
-       </item>
-       <item row="8" column="0">
-        <widget class="QLabel" name="label_14">
-         <property name="text">
-          <string>金额</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>类型选择</string>
-         </property>
-        </widget>
-       </item>
-       <item row="10" column="9">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>258</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="12" colspan="2">
-        <widget class="QToolButton" name="toolButton">
-         <property name="text">
-          <string>...</string>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="12">
-        <widget class="QRadioButton" name="radioButton_Quater">
-         <property name="text">
-          <string>1/4</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_10">
-         <property name="text">
-          <string>选择数量</string>
-         </property>
-        </widget>
-       </item>
-       <item row="9" column="0" colspan="2">
-        <widget class="QToolButton" name="toolButton_Calculate">
-         <property name="text">
-          <string>计算</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="5" colspan="8">
-        <widget class="QComboBox" name="comboBox_3">
-         <item>
-          <property name="text">
-           <string>类型a</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>类型b</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>类型c</string>
-          </property>
-         </item>
-        </widget>
-       </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_4">
          <property name="text">
@@ -381,64 +280,17 @@
          </property>
         </widget>
        </item>
-       <item row="8" column="5" colspan="9">
-        <widget class="QLineEdit" name="lineEdit_Sum">
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEdit_No">
          <property name="readOnly">
           <bool>true</bool>
          </property>
         </widget>
        </item>
-       <item row="10" column="0">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>258</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="6" column="8">
-        <spacer name="horizontalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="7" column="5" colspan="9">
-        <widget class="QLineEdit" name="lineEdit_Max">
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="6" column="5">
-        <widget class="QRadioButton" name="radioButton_All">
+       <item row="1" column="2">
+        <widget class="QLabel" name="label_Name">
          <property name="text">
-          <string>全部</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>报价价格</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>用户账号</string>
+          <string/>
          </property>
         </widget>
        </item>
@@ -449,20 +301,7 @@
          </property>
         </widget>
        </item>
-       <item row="6" column="11">
-        <spacer name="horizontalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="2" column="5" colspan="5">
+       <item row="2" column="1">
         <widget class="QComboBox" name="comboBox_2">
          <item>
           <property name="text">
@@ -481,62 +320,54 @@
          </item>
         </widget>
        </item>
-       <item row="6" column="0">
-        <widget class="QLabel" name="label_12">
+       <item row="2" column="3">
+        <widget class="QToolButton" name="toolButton">
          <property name="text">
-          <string>可卖数量</string>
+          <string/>
          </property>
         </widget>
        </item>
-       <item row="9" column="9">
-        <widget class="QToolButton" name="toolButton_Order">
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_7">
          <property name="text">
-          <string>下单</string>
+          <string>类型选择</string>
          </property>
         </widget>
        </item>
-       <item row="7" column="0">
-        <widget class="QLabel" name="label_13">
-         <property name="text">
-          <string>最大可卖</string>
-         </property>
+       <item row="3" column="1" rowspan="2">
+        <widget class="QComboBox" name="comboBox_3">
+         <item>
+          <property name="text">
+           <string>类型a</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>类型b</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>类型c</string>
+          </property>
+         </item>
         </widget>
        </item>
-       <item row="6" column="6">
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="4" column="8">
+       <item row="4" column="4" rowspan="2">
         <widget class="QToolButton" name="toolButton_2">
          <property name="text">
-          <string>...</string>
+          <string/>
          </property>
         </widget>
        </item>
-       <item row="4" column="7">
-        <widget class="QLabel" name="label_9">
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_8">
          <property name="text">
-          <string>元</string>
+          <string>报价价格</string>
          </property>
         </widget>
        </item>
-       <item row="5" column="7">
-        <widget class="QLabel" name="label_11">
-         <property name="text">
-          <string>股</string>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="5" colspan="2">
+       <item row="5" column="1">
         <widget class="QDoubleSpinBox" name="doubleSpinBox_Price">
          <property name="maximum">
           <double>9999999.000000000000000</double>
@@ -546,7 +377,21 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="5" colspan="2">
+       <item row="5" column="3">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>元</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>选择数量</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
         <widget class="QDoubleSpinBox" name="doubleSpinBox_Number">
          <property name="maximum">
           <double>9999999.000000000000000</double>
@@ -556,19 +401,135 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="5" colspan="6">
-        <widget class="QLineEdit" name="lineEdit_No">
+       <item row="6" column="3">
+        <widget class="QLabel" name="label_11">
+         <property name="text">
+          <string>股</string>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="5">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_12">
+           <property name="text">
+            <string>可卖数量</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_All">
+           <property name="text">
+            <string>全部</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_Half">
+           <property name="text">
+            <string>1/2</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_OneThird">
+           <property name="text">
+            <string>1/3</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_Quater">
+           <property name="text">
+            <string>1/4</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>最大可卖</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="1" colspan="4">
+        <widget class="QLineEdit" name="lineEdit_Max">
          <property name="readOnly">
           <bool>true</bool>
          </property>
         </widget>
        </item>
-       <item row="1" column="11" colspan="2">
-        <widget class="QLabel" name="label_Name">
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_14">
          <property name="text">
-          <string/>
+          <string>金额</string>
          </property>
         </widget>
+       </item>
+       <item row="9" column="1" colspan="4">
+        <widget class="QLineEdit" name="lineEdit_Sum">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QToolButton" name="toolButton_Calculate">
+         <property name="text">
+          <string>计算</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <spacer name="horizontalSpacer_11">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>52</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="10" column="2" colspan="2">
+        <widget class="QToolButton" name="toolButton_Order">
+         <property name="text">
+          <string>下单</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>366</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="11" column="3">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>366</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -638,21 +599,21 @@
          <item>
           <widget class="QToolButton" name="toolButton_OpenFile">
            <property name="text">
-            <string>...</string>
+            <string>打开文件</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton">
            <property name="text">
-            <string>PushButton</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QPushButton" name="pushButton_2">
            <property name="text">
-            <string>PushButton</string>
+            <string/>
            </property>
           </widget>
          </item>

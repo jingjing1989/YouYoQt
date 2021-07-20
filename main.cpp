@@ -7,6 +7,7 @@
 #include "home/MainWindow.h"
 #include "home/MainWindowHome.h"
 #include "home/MyTableWidget.h"
+#include "home/NetWorkWidget.h"
 #include "login/loginDialog.h"
 #include "setting/MainWindowSetting.h"
 #include "setting/SettingDialog.h"
@@ -39,6 +40,9 @@ int main(int argc, char *argv[]) {
 
     MainWindowHome home;
     home.show();
+
+    //    NetWorkWidget net;
+    //    net.show();
     //    CHarts chart;
     //    chart.show();
 

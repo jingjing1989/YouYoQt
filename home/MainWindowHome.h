@@ -4,7 +4,10 @@
 #include <QByteArray>
 #include <QEvent>
 #include <QMainWindow>
+#include <QMdiSubWindow>
 #include <QObject>
+#include <QSize>
+#include <QTreeWidgetItem>
 
 #include "CHarts.h"
 #include "MyLeftBar.h"
@@ -42,6 +45,9 @@ private:
 
   //初始化MDI
   void initMDI();
+
+  //切换MDI页面
+  void changeMDISubWindow(QTreeWidgetItem *current, int column);
 };
 
 #endif // MAINWINDOWHOME_H

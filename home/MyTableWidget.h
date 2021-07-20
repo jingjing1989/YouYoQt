@@ -90,7 +90,7 @@ private:
 
   void GrossAmountNumber(double dblNumber);
 
-  QStandardItemModel *stanModel = nullptr;
+  // QStandardItemModel *stanModelData = nullptr;
 };
 
 #endif // MYTABLEWIDGET_H
