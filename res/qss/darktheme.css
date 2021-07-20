@@ -88,7 +88,8 @@ lineedit-password-character:9679;
 .QGroupBox{
 border:1px solid #444b56;
 border-radius:6px;
-margin-top:3ex;
+padding:1em;
+margin-top: 2ex;
 }
 
 .QGroupBox::title{
