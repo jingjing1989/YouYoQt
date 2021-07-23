@@ -10,7 +10,8 @@ include_directories(
   ${QCEF_WIDGET_SDK_INC_OUT}
 )
 
-find_package(Qt5 COMPONENTS Widgets Gui Charts REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets Gui Charts Network REQUIRED )
+
 
 FILE(GLOB_RECURSE HEADER_FILES "*.h")
 FILE(GLOB_RECURSE SRC_FILES "*.cpp")
@@ -33,7 +34,7 @@ add_executable(${PROJECT_NAME} WIN32
     ${WIN_RC}
 )
 
-target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Charts)
+target_link_libraries(${PROJECT_NAME} Qt5::Widgets Qt5::Core Qt5::Gui Qt5::Charts Qt5::Network )
 target_link_libraries(${PROJECT_NAME} ${QCEF_WIDGET_DLL})
 
 if (MSVC)

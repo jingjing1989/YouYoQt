@@ -13,17 +13,14 @@
 #include "windows.h"
 #endif
 
-MainWindowHome::MainWindowHome(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindowHome) {
+MainWindowHome::MainWindowHome(QWidget *parent)
+    : QMainWindow(parent), ui(new Ui::MainWindowHome) {
   ui->setupUi(this);
   //不显示标题栏
   setWindowFlags(Qt::FramelessWindowHint);
 
   //设置样式
   //只有对qApp才可以直接用"file:///:/qss/files/application.css"设置
-  // QString styleSheet(":/qss/res/qss/defaultstyle/top.css");
-  // CommonUtility::setStyleSheet(styleSheet, this);
-  //  QString styleSheetApp(":/qss/res/qss/defaultstyle/application.css");
-  //  CommonUtility::setStyleSheet(styleSheetApp, this);
 
   QString styleSheetlefttop(":/qss/res/qss/defaultstyle/lefttop.css");
   CommonUtility::setStyleSheet(styleSheetlefttop, ui->shrinkButton);
@@ -42,7 +39,8 @@ MainWindowHome::MainWindowHome(QWidget *parent) : QMainWindow(parent), ui(new Ui
   //初始化MDI
   initMDI();
 
-  connect(ui->leftBar->GetTreeWidget(), &QTreeWidget::itemClicked, this, &MainWindowHome::changeMDISubWindow);
+  connect(ui->leftBar->GetTreeWidget(), &QTreeWidget::itemClicked, this,
+          &MainWindowHome::changeMDISubWindow);
 }
 
 MainWindowHome::~MainWindowHome() { delete ui; }
@@ -83,12 +81,14 @@ bool MainWindowHome::eventFilter(QObject *watched, QEvent *event) {
 }
 
 //
-bool MainWindowHome::nativeEvent(const QByteArray &eventType, void *message, long *result) {
+bool MainWindowHome::nativeEvent(const QByteArray &eventType, void *message,
+                                 long *result) {
 #ifdef Q_OS_WIN
   MSG *msg = (MSG *)message;
   switch (msg->message) {
   case WM_NCHITTEST: {
-    QPoint pos = mapFromGlobal(QPoint(LOWORD(msg->lParam), HIWORD(msg->lParam)));
+    QPoint pos =
+        mapFromGlobal(QPoint(LOWORD(msg->lParam), HIWORD(msg->lParam)));
     bool left = pos.x() < MainWindowHomeSpace::LeftPadding;
     bool right = pos.x() > width() - MainWindowHomeSpace::LeftPadding;
     bool top = pos.y() < MainWindowHomeSpace::LeftPadding;
@@ -125,7 +125,9 @@ bool MainWindowHome::nativeEvent(const QByteArray &eventType, void *message, lon
 }
 
 #ifdef Q_OS_WIN
-bool MainWindowHome::winEvent(MSG *message, long *result) { return nativeEvent("windows_generic_MSG", message, result); }
+bool MainWindowHome::winEvent(MSG *message, long *result) {
+  return nativeEvent("windows_generic_MSG", message, result);
+}
 #endif
 
 void MainWindowHome::initLeftBar() {
@@ -139,7 +141,8 @@ void MainWindowHome::initLeftBar() {
   //点击效果按钮，进行效果展示
   connect(ui->shrinkButton, &QPushButton::toggled, [=](bool isChecked) {
     //自定义属性shrinkTree
-    QPropertyAnimation *animation = new QPropertyAnimation(ui->leftBar, "shrinkTree");
+    QPropertyAnimation *animation =
+        new QPropertyAnimation(ui->leftBar, "shrinkTree");
     animation->setDuration(300);
     animation->setEasingCurve(QEasingCurve::InQuad);
 

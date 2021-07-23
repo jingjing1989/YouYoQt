@@ -4,16 +4,17 @@
 #include <QDialog>
 
 #include "home/CHarts.h"
-#include "home/MainWindow.h"
+
 #include "home/MainWindowHome.h"
 #include "home/MyTableWidget.h"
-#include "home/NetWorkWidget.h"
+
 #include "login/loginDialog.h"
 #include "setting/MainWindowSetting.h"
 #include "setting/SettingDialog.h"
 #include "setting/SystemSettingMainWindow.h"
 #include "utility/CommonUtility.h"
-#include "web/client.h";
+#include "web/MyWeatherWidget.h"
+#include "web/client.h"
 
 #include "Test.h"
 
@@ -25,7 +26,8 @@ int main(int argc, char *argv[]) {
 
   loginDialog login;
   CommonUtility::globalInit(&app);
-  if (login.exec() == QDialog::Accepted) //调用login.exec()，阻塞主控制流，直到完成返回
+  if (login.exec() ==
+      QDialog::Accepted) //调用login.exec()，阻塞主控制流，直到完成返回
   {
 #if 0
        SettingDialog setting;
@@ -41,18 +43,17 @@ int main(int argc, char *argv[]) {
 
     MainWindowHome home;
     home.show();
-    Client c;
-    c.show();
+    //    Client c;
+    //    c.show();
 
-    //    NetWorkWidget net;
-    //    net.show();
+    MyWeatherWidget weather;
+    weather.show();
+
     //    CHarts chart;
     //    chart.show();
 
     //    MyTableWidget table;
     //    table.show();
-    //    MainWindow window1;
-    //    window1.show();
 
     //    Test t(nullptr);
     //    t.show();
