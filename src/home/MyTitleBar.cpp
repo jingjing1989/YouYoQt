@@ -2,12 +2,11 @@
 #include "MyTitleBar.h"
 #include "utility/CommonUtility.h"
 
+#include <QApplication>
+#include <QDebug>
 #include <QEvent>
 #include <QHBoxLayout>
 #include <QPushButton>
-
-#include <QApplication>
-#include <QDebug>
 #ifdef Q_OS_WIN
 #pragma comment(lib, "user32.lib")
 #include <qt_windows.h>
@@ -16,8 +15,8 @@
 MyTitleBar::MyTitleBar(QWidget *parent) : QWidget(parent) {
 
   logo = new QLabel(this);
-  logo->setFixedSize(20, 20);
   logo->setScaledContents(true);
+  logo->setText("YOUYO-爱呦呦");
   logo->setObjectName("logo");
 
   m_pTitleLabel = new QLabel(this);
@@ -25,16 +24,10 @@ MyTitleBar::MyTitleBar(QWidget *parent) : QWidget(parent) {
   m_pTitleLabel->setContentsMargins(8, 0, 0, 0);
   m_pTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
-  //    m_pTitleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-
   //最大最小关闭按钮
   minimizeBtn = new QPushButton(this);
   maxBtn = new QPushButton(this);
   closeBtn = new QPushButton(this);
-
-  minimizeBtn->setFixedSize(30, 30);
-  maxBtn->setFixedSize(30, 30);
-  closeBtn->setFixedSize(30, 30);
 
   minimizeBtn->setObjectName("minimizeBtn");
   maxBtn->setObjectName("maxBtn");
@@ -44,44 +37,15 @@ MyTitleBar::MyTitleBar(QWidget *parent) : QWidget(parent) {
   maxBtn->setToolTip("Maximize");
   closeBtn->setToolTip("Close");
 
-  //按钮
-
-  selectPluginBtn = new QPushButton(this);
-  selectPluginBtn->setFixedSize(30, 30);
-  selectPluginBtn->setObjectName("selectPluginBtn");
-  selectPluginBtn->setToolTip("selectPlugin");
-#if 1
-  cloudBtn = new QPushButton(this);
-  skinBtn = new QPushButton(this);
-  cfgBtn = new QPushButton(this);
-  sizeBtn = new QPushButton(this);
-
-  cloudBtn->setFixedSize(30, 30);
-  skinBtn->setFixedSize(30, 30);
-  cfgBtn->setFixedSize(30, 30);
-  sizeBtn->setFixedSize(30, 30);
-
-  cloudBtn->setObjectName("cloudBtn");
-  skinBtn->setObjectName("skinBtn");
-  cfgBtn->setObjectName("cfgBtn");
-  sizeBtn->setObjectName("sizeBtn");
-#endif
-
-  //  minimizeBtn->setIcon(QIcon(":/icon/minus.png"));
-  //  maxBtn->setIcon(QIcon(":/icon/maximize.png"));
-  //  closeBtn->setIcon(QIcon(":/icon/close.png"));
+  // 创建字体
+  CommonUtility::setIconFont(QChar(0xf2d1), minimizeBtn);
+  CommonUtility::setIconFont(QChar(0xf2d0), maxBtn);
+  CommonUtility::setIconFont(QChar(0xf2d3), closeBtn);
 
   QHBoxLayout *pLayout = new QHBoxLayout;
-
   pLayout->addWidget(logo);
   pLayout->addWidget(m_pTitleLabel);
   pLayout->addStretch();
-
-  pLayout->addWidget(selectPluginBtn);
-  pLayout->addWidget(cloudBtn);
-  pLayout->addWidget(skinBtn);
-  pLayout->addWidget(cfgBtn);
-  pLayout->addWidget(sizeBtn);
 
   pLayout->addWidget(minimizeBtn);
   pLayout->addWidget(maxBtn);
@@ -93,19 +57,6 @@ MyTitleBar::MyTitleBar(QWidget *parent) : QWidget(parent) {
   connect(minimizeBtn, SIGNAL(clicked(bool)), this, SLOT(onClicked()));
   connect(maxBtn, SIGNAL(clicked(bool)), this, SLOT(onClicked()));
   connect(closeBtn, SIGNAL(clicked(bool)), this, SLOT(onClicked()));
-
-  //设置样式
-#if 0
-  //只有对qApp才可以直接用"file:///:/qss/files/application.css"设置
-  QFile styleSheet(":/qss/files/top.css");
-
-  if (!styleSheet.open(QIODevice::ReadOnly)) {
-      qWarning("Unable to open :/files/top.qss");
-      return;
-  }
-
-   this->setStyleSheet(styleSheet.readAll());
-#endif
 
   CommonUtility::setStyleSheet(":/qss/res/qss/defaultstyle/top.css", this);
 }

@@ -25,7 +25,7 @@
 
 #shrinkButton:hover{
 	height:20px;
-    width:20px;
+        width:20px;
 	background-color:#070C15;
         border-image:url(:/images/res/images/lefttopbar/shrinkButton_max_sle.png);
 }
@@ -40,14 +40,14 @@
 
 #shrinkButton:checked:hover{
 	height:20px;
-    width:20px;
+        width:20px;
 	background-color:#070C15;
         border-image:url(:/images/res/images/lefttopbar/shrinkButton_min_sle.png);
 }
 
 #collectButton{
 	height:20px;
-    width:20px;
+        width:20px;
 	background-color:#070C15;
         border-image:url(:/images/res/images/lefttopbar/collect.png);
 }
@@ -58,7 +58,7 @@
 
 #lockButton{
 	height:20px;
-    width:20px;
+        width:20px;
 	background-color:#070C15;
         border-image:url(:/images/res/images/lefttopbar/lock.png);
 }
@@ -70,7 +70,7 @@
 
 #revertButton{
 	height:20px;
-    width:20px;
+        width:20px;
 	background-color:#070C15;
         border-image:url(:/images/res/images/lefttopbar/revert.png);
 }
@@ -83,7 +83,7 @@
 
 #saveLayoutButton{
 	height:20px;
-    width:20px;
+        width:20px;
 	background-color:#353F52;
         border-image:url(:/images/res/images/lefttopbar/saveLayout.png);
 }
