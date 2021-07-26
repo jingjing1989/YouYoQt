@@ -211,6 +211,7 @@ void CHarts::CalculateData() {
 //柱状图初始化
 void CHarts::iniBarChart() {
   QChart *chart = new QChart(); //创建chart
+  chart->setTheme(QChart::ChartThemeDark);
   chart->setTitle("Barchart演示");
   chart->setAnimationOptions(QChart::SeriesAnimations);
   ui->graphicsView_Bar->setChart(chart); //为ChartView设置chart
@@ -324,7 +325,7 @@ void CHarts::initPieChart() {
   chart->setAnimationOptions(QChart::SeriesAnimations);
   ui->graphicsView_Pie->setChart(chart); //为ChartView设置chart
   ui->graphicsView_Pie->setRenderHint(QPainter::Antialiasing);
-
+  chart->setTheme(QChart::ChartThemeDark);
   buildPieChart();
 }
 
@@ -384,6 +385,7 @@ void CHarts::buildPieChart() {
 void CHarts::initStackedBarChart() {
   //获取chart对象
   QChart *chart = ui->graphicsView_Stacked->chart();
+  chart->setTheme(QChart::ChartThemeDark);
   chart->setTitle("StackedBar 演示");
   chart->setAnimationOptions(QChart::SeriesAnimations);
   //为ChartView设置chart
@@ -465,6 +467,7 @@ void CHarts::buildStackedBarChart() {
 //初始化百分比柱状图
 void CHarts::initPercentBarCHart() {
   QChart *chart = ui->graphicsView_Percent->chart();
+  chart->setTheme(QChart::ChartThemeDark);
   chart->setTitle("Percent Bar 演示");
   chart->setAnimationOptions(QChart::SeriesAnimations);
   ui->graphicsView_Percent->setChart(chart);
@@ -545,6 +548,7 @@ void CHarts::buildPercentBarChart() {
 
 void CHarts::initScatterChart() {
   QChart *chart = new QChart();
+  chart->setTheme(QChart::ChartThemeDark);
   chart->setTitle("QScatter QSplineSeries演示");
   chart->setAnimationOptions(QChart::SeriesAnimations);
   ui->graphicsView_Scatter->setChart(chart);

@@ -6,6 +6,7 @@
 #include <QFile>
 #include <QFontDatabase>
 #include <QPalette>
+#include <QPushButton>
 
 CommonUtility::CommonUtility() {}
 
@@ -50,6 +51,18 @@ void CommonUtility::addIconFont() {
   if (fontId < 0)
     qWarning() << "FontAwesome cannot be loaded !";
   return;
+}
+
+void CommonUtility::setIconFont(QChar ch, QPushButton *p, const int &size) {
+  QFont iconfont("FontAwesome", size);
+  p->setFont(iconfont);
+  p->setText(ch);
+}
+
+void CommonUtility::setIconFont(QChar ch, QLabel *p, const int &size) {
+  QFont iconfont("FontAwesome", size);
+  p->setFont(iconfont);
+  p->setText(ch);
 }
 
 void CommonUtility::addDefaultFont() {

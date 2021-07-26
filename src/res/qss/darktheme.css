@@ -424,6 +424,7 @@ selection-background-color:#383f46;
 selection-color:#c9d1d9;
 alternate-background-color:#2f353c;
 gridline-color:#444b56;
+font-family:SimHei;
 }
 
 QTreeView::branch:closed:has-children{
