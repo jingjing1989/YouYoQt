@@ -142,5 +142,12 @@
         <file>res/images/darktheme/radiobutton_checked_disable.png</file>
         <file>res/images/darktheme/radiobutton_unchecked.png</file>
         <file>res/images/darktheme/radiobutton_unchecked_disable.png</file>
+        <file>res/images/weather/cloudy.png</file>
+        <file>res/images/weather/heavyrain.png</file>
+        <file>res/images/weather/lightrain.png</file>
+        <file>res/images/weather/sunny.png</file>
+        <file>res/images/weather/sunnycloudy.png</file>
+        <file>res/images/weather/thundershower.png</file>
+        <file>res/images/weather/undefined.png</file>
     </qresource>
 </RCC>
