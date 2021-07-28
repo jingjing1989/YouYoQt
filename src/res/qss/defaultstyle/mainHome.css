@@ -1,0 +1,50 @@
+﻿#LeftTopBarContainer{
+	max-height:28px;
+	min-height:28px;
+	background-color:#070C15;
+	border-bottom:1px solid #000000;
+	border-right:1px solid #000000;
+	border-top:1px solid rbga(0,0,0,128);
+}
+
+#shrinkFrame{
+	border-right:1px solid #000000;
+	max-width:40px;
+	min-width:40px;
+	background-color:transparent;
+	padding-left:0px;
+}
+
+#shrinkButton{
+    padding:0px 4px;
+    border:0;
+    font-size:18pt;
+    background:transparent;
+    color:#03A9F4;
+}
+#shrinkButton:hover{
+    color:#1976D2;
+}
+#shrinkButton:checked:hover{
+    color:#1976D2;
+}
+#treeWidget{
+    font-size:9pt;
+    border:0;
+    border-right:1px solid;
+    border-radius:0;
+}
+#treeWidget::item {
+    border-bottom: 1px solid #d9d9d9;
+    padding:8px 0px;
+}
+#treeWidget .icon {
+    color:#03A9F4;
+    padding-left:4px;
+}
+#treeWidget .hoverIcon {
+    color:#1976D2;
+}
+#treeWidget::item:hover {
+    color:#1976D2;
+}

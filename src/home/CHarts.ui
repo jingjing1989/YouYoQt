@@ -43,15 +43,12 @@
      <property name="handleWidth">
       <number>12</number>
      </property>
-     <widget class="QGroupBox" name="groupBox_Data">
+     <widget class="QWidget" name="widget_Data" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
-      </property>
-      <property name="title">
-       <string>数据</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_7">
        <property name="leftMargin">
@@ -225,10 +222,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QGroupBox" name="groupBox_Bar">
-      <property name="title">
-       <string>柱状图</string>
-      </property>
+     <widget class="QWidget" name="widget_Bar" native="true">
       <layout class="QGridLayout" name="gridLayout_3">
        <property name="leftMargin">
         <number>0</number>
@@ -257,10 +251,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QGroupBox" name="groupBox_Pie">
-      <property name="title">
-       <string>饼图</string>
-      </property>
+     <widget class="QWidget" name="widget_Pie" native="true">
       <layout class="QGridLayout" name="gridLayout_4">
        <property name="leftMargin">
         <number>0</number>
@@ -440,10 +431,7 @@
      <property name="handleWidth">
       <number>12</number>
      </property>
-     <widget class="QGroupBox" name="groupBox_Stacked">
-      <property name="title">
-       <string>堆叠柱状图</string>
-      </property>
+     <widget class="QWidget" name="widget_Stacked" native="true">
       <layout class="QGridLayout" name="gridLayout">
        <property name="leftMargin">
         <number>0</number>
@@ -465,10 +453,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QGroupBox" name="groupBox_Percent">
-      <property name="title">
-       <string>百分比柱状图</string>
-      </property>
+     <widget class="QWidget" name="widget_Percent" native="true">
       <layout class="QGridLayout" name="gridLayout_5">
        <property name="leftMargin">
         <number>0</number>
@@ -490,10 +475,7 @@
        </item>
       </layout>
      </widget>
-     <widget class="QGroupBox" name="groupBox_Scatter">
-      <property name="title">
-       <string>散点图</string>
-      </property>
+     <widget class="QWidget" name="widget_Scatter" native="true">
       <layout class="QGridLayout" name="gridLayout_6">
        <property name="leftMargin">
         <number>0</number>

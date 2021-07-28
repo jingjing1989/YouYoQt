@@ -19,7 +19,7 @@ MainWindowHome::MainWindowHome(QWidget *parent) : QMainWindow(parent), ui(new Ui
   setWindowFlags(Qt::FramelessWindowHint);
 
   //设置样式
-  QString styleSheetlefttop(":/qss/res/qss/defaultstyle/lefttop.css");
+  QString styleSheetlefttop(":/qss/res/qss/defaultstyle/mainHome.css");
   CommonUtility::setStyleSheet(styleSheetlefttop, this);
 
   this->installEventFilter(this);
@@ -32,7 +32,9 @@ MainWindowHome::MainWindowHome(QWidget *parent) : QMainWindow(parent), ui(new Ui
   connect(ui->leftBar->GetTreeWidget(), &QTreeWidget::itemClicked, this, &MainWindowHome::changeMDISubWindow);
 }
 
-MainWindowHome::~MainWindowHome() { delete ui; }
+MainWindowHome::~MainWindowHome() {
+  delete ui;
+}
 
 //重写eventFilter 实现鼠标按住左键可以移动窗口
 bool MainWindowHome::eventFilter(QObject *watched, QEvent *event) {
@@ -109,30 +111,33 @@ bool MainWindowHome::nativeEvent(const QByteArray &eventType, void *message, lon
 }
 
 #ifdef Q_OS_WIN
-bool MainWindowHome::winEvent(MSG *message, long *result) { return nativeEvent("windows_generic_MSG", message, result); }
+bool MainWindowHome::winEvent(MSG *message, long *result) {
+  return nativeEvent("windows_generic_MSG", message, result);
+}
 #endif
 
 void MainWindowHome::initLeftBar() {
   qDebug() << "ui->leftBar:" << ui->leftBar->height();
-  //点击效果按钮，进行效果展示
+  CommonUtility::setIconFont(QChar(0xf137), ui->shrinkButton);
+  //收缩按钮
   connect(ui->shrinkButton, &QPushButton::toggled, [=](bool isChecked) {
-    //自定义属性shrinkTree
+    //自定义属性-shrinkTree
     QPropertyAnimation *animation = new QPropertyAnimation(ui->leftBar, "shrinkTree");
-    animation->setDuration(300);
+    animation->setDuration(200);
     animation->setEasingCurve(QEasingCurve::InQuad);
-
-    //按下是收起
+    //收起
     if (isChecked) {
       qDebug() << "isChecked  ui->leftBar->width() :" << ui->leftBar->width();
-      animation->setEndValue(25);
+      CommonUtility::setIconFont(QChar(0xf138), ui->shrinkButton);
+      animation->setEndValue(40);
       ui->leftBar->setExpandsOnDoubleClick(false);
       ui->leftBar->setExpand(false);
     }
-    // not check 是要伸展开
+    //展开
     else {
       qDebug() << "not check   ui->leftBar->width() :" << ui->leftBar->width();
-      // animation->setEndValue(ui->treeWidgetLeft->width() + 10);
-      animation->setEndValue(200);
+      CommonUtility::setIconFont(QChar(0xf137), ui->shrinkButton);
+      animation->setEndValue(150);
       ui->leftBar->setExpandsOnDoubleClick(true);
       ui->leftBar->setExpand(true);
     }
@@ -154,10 +159,6 @@ void MainWindowHome::initMDI() {
   ui->mdiArea->setViewMode(QMdiArea::TabbedView); // Tab多页显示模式
   ui->mdiArea->setTabsClosable(true);             //页面可关闭
   pchart->showMaximized();
-
-  // pchart->show();
-
-  // this->setWindowState(Qt::WindowMaximized); //窗口最大化显示
 }
 
 void MainWindowHome::changeMDISubWindow(QTreeWidgetItem *current, int column) {
@@ -189,9 +190,5 @@ void MainWindowHome::changeMDISubWindow(QTreeWidgetItem *current, int column) {
     QSize size = ui->mdiArea->size();
     subWindow1->resize(size);
     ui->mdiArea->setActiveSubWindow(subWindow1);
-
-    /*      ui->mdiArea->setViewMode(QMdiArea::TabbedView); // Tab多页显示模式
-          ui->mdiArea->setTabsClosable(true);     */        //页面可关闭
-    // tableWidget->showMaximized();
   }
 }
