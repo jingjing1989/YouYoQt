@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>988</width>
-    <height>786</height>
+    <width>1200</width>
+    <height>743</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,6 +35,12 @@
       <property name="spacing">
        <number>0</number>
       </property>
+      <property name="topMargin">
+       <number>8</number>
+      </property>
+      <property name="bottomMargin">
+       <number>8</number>
+      </property>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_lefttop">
         <property name="spacing">
@@ -43,44 +49,11 @@
         <property name="sizeConstraint">
          <enum>QLayout::SetDefaultConstraint</enum>
         </property>
+        <property name="leftMargin">
+         <number>3</number>
+        </property>
         <item>
          <widget class="QPushButton" name="shrinkButton">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="collectButton">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="lockButton">
-          <property name="text">
-           <string/>
-          </property>
-          <property name="checkable">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="revertButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
           <property name="text">
            <string/>
           </property>
@@ -105,25 +78,12 @@
     </item>
     <item row="1" column="0">
      <layout class="QGridLayout" name="gridLayout">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
       <property name="spacing">
        <number>0</number>
       </property>
-      <item row="0" column="0">
-       <widget class="MyLeftBar" name="leftBar" native="true">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>150</width>
-          <height>0</height>
-         </size>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="1">
        <widget class="QMdiArea" name="mdiArea">
         <property name="sizePolicy">
@@ -137,6 +97,22 @@
         </property>
         <property name="tabShape">
          <enum>QTabWidget::Triangular</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="MyLeftBar" name="leftBar" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>0</height>
+         </size>
         </property>
        </widget>
       </item>

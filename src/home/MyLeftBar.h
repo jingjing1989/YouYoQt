@@ -30,6 +30,12 @@ private:
 
   void initTreeWIdget();
 
+  void setOneTreeWidgetItem(QTreeWidgetItem *treeItem, QChar icon, QString menuName);
+
+  void changeLabelHover(QTreeWidgetItem *pItem, int column);
+
+  void changeLabelNoHover(QTreeWidgetItem *pItem, int column);
+
   bool eventFilter(QObject *watched, QEvent *event);
 
   // void initControl();
